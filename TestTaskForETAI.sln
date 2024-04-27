@@ -10,8 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskForETAI__Categories
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskForETAI__GoodsService", "TestTaskForETAI__GoodsService\TestTaskForETAI__GoodsService.csproj", "{7711E73F-EBA2-4D59-B2C7-2E1AB8E97C99}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{4BDB1A90-C68E-4CDA-A6B3-A83EA30BFB0B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

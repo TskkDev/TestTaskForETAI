@@ -4,9 +4,10 @@ using LinqToDB.Data;
 
 namespace TestTaskForETAI__CategoriesService.Entity;
 
-public class DbContext : DataConnection
+public class DbConection : DataConnection
 {
-    public DbContext(IConfiguration configuration) : base(configuration.GetConnectionString("Db"))
+    public DbConection(IConfiguration configuration) : base("LinqToDB.DataProvider.PostgreSQL", 
+        configuration.GetConnectionString("DB"))
     {
     }
     public ITable<Category> Categories => this.GetTable<Category>();
