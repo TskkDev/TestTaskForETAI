@@ -1,4 +1,4 @@
-namespace TestTaskForETAI__CategoriesService.Models.RequestModel;
+namespace SharedModels.RequestModels;
 
 public class CategoryRequestModel
 {

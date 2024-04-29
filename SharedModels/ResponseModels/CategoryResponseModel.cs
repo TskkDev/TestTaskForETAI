@@ -1,4 +1,4 @@
-namespace TestTaskForETAI__CategoriesService.Models;
+namespace SharedModels.ResponseModels;
 
 public class CategoryResponseModel
 {

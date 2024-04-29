@@ -1,6 +1,6 @@
 ﻿using LinqToDB.Mapping;
 
-namespace TestTaskForETAI__CategoriesService.Entity;
+namespace TestTaskForETAI__CategoriesService.Data_Access_Layer.Entities;
 
 [Table(Name = "Categories")]
 public class Category

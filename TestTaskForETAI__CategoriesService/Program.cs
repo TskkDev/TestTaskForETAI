@@ -1,10 +1,13 @@
-
-using LinqToDB.Tools;
-using TestTaskForETAI__CategoriesService.Entity;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq();
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

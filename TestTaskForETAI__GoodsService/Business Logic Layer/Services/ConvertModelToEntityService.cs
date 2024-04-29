@@ -4,7 +4,7 @@ using TestTaskForETAI__GoodsService.Data_Access_Layer.Enities;
 
 namespace TestTaskForETAI__GoodsService.Business_Logic_Layer.Services;
 
-public class ConvertModelToEntityService_
+public class ConvertModelToEntityService
 {
     public Good RequestModelToEntity(GoodRequestModel goodReq)
     {

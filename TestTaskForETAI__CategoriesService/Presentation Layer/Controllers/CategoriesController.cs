@@ -1,11 +1,13 @@
-using LinqToDB;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using TestTaskForETAI__CategoriesService.Entity;
-using TestTaskForETAI__CategoriesService.Models.RequestModel;
-using TestTaskForETAI__CategoriesService.Repositories;
-using TestTaskForETAI__CategoriesService.Service;
+using SharedModels.MessageModels;
+using SharedModels.RequestModels;
+using SharedModels.ResponseModels;
+using TestTaskForETAI__CategoriesService.Business_Logic_Layer.Services;
+using TestTaskForETAI__CategoriesService.Data_Access_Layer.Entities;
+using TestTaskForETAI__CategoriesService.Data_Access_Layer.Repositories;
 
-namespace TestTaskForETAI__CategoriesService.Controllers;
+namespace TestTaskForETAI__CategoriesService.Presentation_Layer.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -13,24 +15,29 @@ public class CategoriesController : Controller
 {
     private readonly IConfiguration _configuration;
     private readonly ConvertModelToEntityService _converter;
-
-    public CategoriesController(IConfiguration configuration)
+    private readonly IPublishEndpoint _publishEndpoint;
+    
+    public CategoriesController(IConfiguration configuration, IPublishEndpoint publishEndpoint)
     {
         _configuration = configuration;
+        _publishEndpoint = publishEndpoint;
         _converter = new ConvertModelToEntityService();
     }
     
     [HttpPost("/addCategory")]
     public async Task<IActionResult> AddCategory(CategoryRequestModel newCategory)
     {
+        CategoryResponseModel addCategory;
         if (String.IsNullOrEmpty(newCategory.Name))
             return NoContent();
         using (var db = new DbConection(_configuration))
         {
-            var repos = new CategoryRepository(db);
-            repos.Add(_converter.RequestModelToEntity(newCategory));
+            var repos = new CategoriesRepository(db);
+            addCategory = _converter.EntityToResponseModel(
+                repos.Add(_converter.RequestModelToEntity(newCategory)));
         }
-        return Ok();
+        await _publishEndpoint.Publish<CategoryResponseModel>(addCategory);
+        return Ok(addCategory);
     }
 
     [HttpPatch("/updateCategory/categoryId={categoryId:int}")]
@@ -38,39 +45,46 @@ public class CategoriesController : Controller
     {
         if (String.IsNullOrEmpty(newCategory.Name))
             return BadRequest();
-        Category updatedCategory;
+        CategoryResponseModel updatedCategory;
         using (var db = new DbConection(_configuration))
         {
-            var repos = new CategoryRepository(db);
+            var repos = new CategoriesRepository(db);
             var oldCategory = repos.GetById(categoryId);
             if (oldCategory is null) return NotFound(); 
-            updatedCategory = repos.Update(oldCategory, _converter.RequestModelToEntity(newCategory));
+            updatedCategory = _converter.EntityToResponseModel(
+                repos.Update(oldCategory, _converter.RequestModelToEntity(newCategory)));
         }
-        return Ok(_converter.EntityToResponseModel(updatedCategory));
+        await _publishEndpoint.Publish<CategoryResponseModel>(updatedCategory);
+        return Ok(updatedCategory);
     }
 
     [HttpGet("/getCategoryById/categoryId={categoryId:int}")]
     public async Task<IActionResult> GetCategoryById(int categoryId)
     {
-        Category? category;
+        CategoryResponseModel? category;
         using (var db = new DbConection(_configuration))
         {
-            var repos = new CategoryRepository(db);
-            category = repos.GetById(categoryId);
+            var repos = new CategoriesRepository(db);
+            category = _converter.EntityToResponseModel(
+                repos.GetById(categoryId));
             if (category is null) return NotFound();
         }
-        return Ok(_converter.EntityToResponseModel(category));
+        await _publishEndpoint.Publish<CategoryResponseModel>(category);
+        return Ok(category);
     }
 
     [HttpGet("GetAllTopicCategory")]
     public async Task<IActionResult> GetAllTopicCategory()
     {
+        List<CategoryResponseModel> categories;
         using (var db = new DbConection(_configuration))
         {
-            var repos = new CategoryRepository(db);
-            var categories = repos.GetAllTopicCategories().ToList();
+            var repos = new CategoriesRepository(db);
+            categories = _converter.EntitiesToResponseModels(
+                repos.GetAllTopicCategories().ToList());
             if (categories.Count() == 0) return BadRequest();
-            return Ok(_converter.EntitiesToResponseModels(categories));
+            await _publishEndpoint.Publish<CategoryListMessage>(new CategoryListMessage() {Categories = categories});
+            return Ok(categories);
         }
     }
 }

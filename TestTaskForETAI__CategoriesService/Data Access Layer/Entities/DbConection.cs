@@ -1,8 +1,7 @@
-﻿using System.Data.Common;
-using LinqToDB;
+﻿using LinqToDB;
 using LinqToDB.Data;
 
-namespace TestTaskForETAI__CategoriesService.Entity;
+namespace TestTaskForETAI__CategoriesService.Data_Access_Layer.Entities;
 
 public class DbConection : DataConnection
 {

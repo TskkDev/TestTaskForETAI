@@ -1,8 +1,8 @@
-using TestTaskForETAI__CategoriesService.Entity;
-using TestTaskForETAI__CategoriesService.Models;
-using TestTaskForETAI__CategoriesService.Models.RequestModel;
+using SharedModels.RequestModels;
+using SharedModels.ResponseModels;
+using TestTaskForETAI__CategoriesService.Data_Access_Layer.Entities;
 
-namespace TestTaskForETAI__CategoriesService.Service;
+namespace TestTaskForETAI__CategoriesService.Business_Logic_Layer.Services;
 
 public class ConvertModelToEntityService
 {

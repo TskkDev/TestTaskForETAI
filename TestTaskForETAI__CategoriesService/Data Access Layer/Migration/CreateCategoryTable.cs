@@ -1,8 +1,9 @@
-namespace TestTaskForETAI__CategoriesService.Migration;
 using FluentMigrator;
 
+namespace TestTaskForETAI__CategoriesService.Data_Access_Layer.Migration;
+
 [Migration(20240427000001)]
-public class CreateCategoryTable : Migration
+public class CreateCategoryTable : FluentMigrator.Migration
 {
     public override void Up()
     {
