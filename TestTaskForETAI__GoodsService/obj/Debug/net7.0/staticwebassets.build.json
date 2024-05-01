@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "GN+EqUOb0e4Se1KRICa/cT9kHNRsDu+QrOyCWr6h+cA=",
-  "Source": "TestTaskForETAI__GoodsService",
-  "BasePath": "_content/TestTaskForETAI__GoodsService",
+  "Hash": "kaxDCM84vvqK9+pBPLKC8ZGUGgiNDa3uUIV2fA0aE14=",
+  "Source": "GoodsService__WebApi",
+  "BasePath": "_content/GoodsService__WebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

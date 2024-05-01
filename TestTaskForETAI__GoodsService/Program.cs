@@ -1,3 +1,5 @@
+using GoodsService__BLL.Interfaces;
+using GoodsService__BLL.Managers;
 using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,7 @@ builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq();
 });
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

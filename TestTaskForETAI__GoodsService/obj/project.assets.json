@@ -503,6 +503,35 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
+      "GoodsService__BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "GoodsService__DAL": "1.0.0",
+          "SharedModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GoodsService__BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GoodsService__BLL.dll": {}
+        }
+      },
+      "GoodsService__DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "FluentMigrator": "5.2.0",
+          "Npgsql": "8.0.2",
+          "linq2db": "5.4.1"
+        },
+        "compile": {
+          "bin/placeholder/GoodsService__DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GoodsService__DAL.dll": {}
+        }
+      },
       "SharedModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -1562,6 +1591,16 @@
         "version.txt"
       ]
     },
+    "GoodsService__BLL/1.0.0": {
+      "type": "project",
+      "path": "../GoodsService__BLL/GoodsService__BLL.csproj",
+      "msbuildProject": "../GoodsService__BLL/GoodsService__BLL.csproj"
+    },
+    "GoodsService__DAL/1.0.0": {
+      "type": "project",
+      "path": "../GoodsService__DAL/GoodsService__DAL.csproj",
+      "msbuildProject": "../GoodsService__DAL/GoodsService__DAL.csproj"
+    },
     "SharedModels/1.0.0": {
       "type": "project",
       "path": "../SharedModels/SharedModels.csproj",
@@ -1571,6 +1610,8 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "FluentMigrator >= 5.2.0",
+      "GoodsService__BLL >= 1.0.0",
+      "GoodsService__DAL >= 1.0.0",
       "MassTransit >= 8.2.2",
       "MassTransit.AspNetCore >= 7.3.1",
       "MassTransit.RabbitMQ >= 8.2.2",
@@ -1588,9 +1629,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI__GoodsService\\TestTaskForETAI__GoodsService.csproj",
-      "projectName": "TestTaskForETAI__GoodsService",
-      "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI__GoodsService\\TestTaskForETAI__GoodsService.csproj",
+      "projectUniqueName": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI__GoodsService\\GoodsService__WebApi.csproj",
+      "projectName": "GoodsService__WebApi",
+      "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI__GoodsService\\GoodsService__WebApi.csproj",
       "packagesPath": "C:\\Users\\home\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI__GoodsService\\obj\\",
       "projectStyle": "PackageReference",
@@ -1614,6 +1655,12 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\GoodsService__BLL\\GoodsService__BLL.csproj": {
+              "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\GoodsService__BLL\\GoodsService__BLL.csproj"
+            },
+            "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\GoodsService__DAL\\GoodsService__DAL.csproj": {
+              "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\GoodsService__DAL\\GoodsService__DAL.csproj"
+            },
             "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\SharedModels\\SharedModels.csproj": {
               "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\SharedModels\\SharedModels.csproj"
             }

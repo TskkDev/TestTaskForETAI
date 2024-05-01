@@ -1,0 +1,12 @@
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\GoodsService__DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\GoodsService__DAL.AssemblyInfoInputs.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\GoodsService__DAL.AssemblyInfo.cs
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\GoodsService__DAL.csproj.CoreCompileInputs.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\bin\Debug\net7.0\GoodsService__DAL.deps.json
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\bin\Debug\net7.0\GoodsService__DAL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\bin\Debug\net7.0\GoodsService__DAL.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\GoodsService__DAL.csproj.AssemblyReference.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\GoodsService__DAL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\refint\GoodsService__DAL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\GoodsService__DAL.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__DAL\obj\Debug\net7.0\ref\GoodsService__DAL.dll
