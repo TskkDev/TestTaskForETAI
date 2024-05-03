@@ -29,7 +29,10 @@ public class CategoriesRepository : ICategoriesRepository
         _db.Update(category);
         return category;
     }
-
+    public string GetCategoryNameById(int id)
+    {
+        return _db.Categories.FirstOrDefault(c => c.Id == id).Name;
+    }
     public Category? GetById(int id)
     {
         return _db.Categories.LoadWith(c => c.SubCategories)

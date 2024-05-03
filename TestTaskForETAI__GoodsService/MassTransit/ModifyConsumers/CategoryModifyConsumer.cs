@@ -4,7 +4,7 @@ using SharedModels.MessageModels;
 
 namespace GoodsService__WebApi.MassTransit.ModifyConsumers;
 
-public class CategoriesModifyConsumer : IConsumer<CategoryMessage>
+public class CategoryModifyConsumer : IConsumer<CategoryMessage>
 {
     public Task Consume(ConsumeContext<CategoryMessage> context)
     {

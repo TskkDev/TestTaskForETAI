@@ -1,18 +1,14 @@
-﻿using CategoriesService__BLL.Services;
+﻿using CategoriesService__BLL.Interfaces;
+using CategoriesService__BLL.Services;
 using CategoriesService__DAL.Entities;
 using CategoriesService__DAL.Repositories;
-using LinqToDB.Common;
+using SharedModels.MessageModels;
 using SharedModels.RequestModels;
 using SharedModels.ResponseModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CategoriesService__BLL.Managers
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryManager
     {
         private readonly string _connectionString;
         private readonly ConvertModelToEntityService _converter;
@@ -43,7 +39,14 @@ namespace CategoriesService__BLL.Managers
                     repos.Update(oldCategory, _converter.RequestModelToEntity(newCategory))));
             }
         }
-        
+        public string GetCategoryNameById(int categoryId)
+        {
+            using (var db = new DbConection(_connectionString))
+            {
+                var repos = new CategoriesRepository(db);
+                return repos.GetCategoryNameById(categoryId);
+            }
+        }
         public CategoryResponseModel? GetCategoryById(int categoryId)
         {
             using (var db = new DbConection(_connectionString))

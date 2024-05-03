@@ -8,7 +8,7 @@ namespace GoodsService__WebApi.MassTransit.ResponseConsumers
     {
         public CategoriesResponseConsumerDefinition()
         {
-            EndpointName = QueueConstants.NotificationQueueNameBetweenMicroservices;
+            EndpointName = QueueConstants.ListMessageResponseQueue;
         }
     }
 }

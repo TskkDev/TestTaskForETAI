@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SharedModels.Constants
+﻿namespace SharedModels.Constants
 {
     public static class QueueConstants
     {
-        public static string NotificationQueueNameBetweenMicroservices = "NotificationQueueNameBetweenMicroservices";
-        public static string NotificationQueueNameBetweenLogicalMicroservices = "NotificationQueueNameBetweenLogicalMicroservices";
+        public static string NotificationQueueNameFromCategoriesToGoods = "NotificationQueueNameFromCategoriesToGoods";
+        public static string NotificationQueueNameFromGoodsToCategories = "NotificationQueueNameFromGoodsToCategories";
+        public static string ListMessageResponseQueue = "ListMessageResponseQueue";
+        public static string MessageResponseQueue = "MessageResponseQueue";
     }
 }

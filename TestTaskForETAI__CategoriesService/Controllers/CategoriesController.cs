@@ -1,12 +1,10 @@
-using CategoriesService__BLL.Managers;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels.MessageModels;
 using SharedModels.RequestModels;
 using SharedModels.ResponseModels;
 using SharedModels.Enums;
-using CategoriesService__DAL.Entities;
-
+using CategoriesService__BLL.Interfaces;
 
 namespace CategoriesService__WebApi.Controllers;
 
@@ -14,19 +12,18 @@ namespace CategoriesService__WebApi.Controllers;
 [ApiController]
 public class CategoriesController : Controller
 {
-    private readonly CategoryManager _categoryManager;
+    private readonly ICategoryManager _categoryManager;
     private readonly IPublishEndpoint _publishEndpoint;
     private readonly IRequestClient<CategoryListMessage> _requestClientList;
     private readonly IRequestClient<CategoryResponseModel> _requestClient;
 
-    public CategoriesController(IConfiguration configuration,
+    public CategoriesController(ICategoryManager categoryManager,
         IPublishEndpoint publishEndpoint,
         IRequestClient<CategoryListMessage> requestClientList,
         IRequestClient<CategoryResponseModel> requestClient
         )
     {
-        _categoryManager = new CategoryManager( configuration
-            .GetConnectionString("DB") ?? throw new NullReferenceException());
+        _categoryManager = categoryManager;
         _publishEndpoint = publishEndpoint;
         _requestClientList = requestClientList;
         _requestClient = requestClient;
@@ -39,6 +36,7 @@ public class CategoriesController : Controller
             return NoContent();
 
         var addCategory = _categoryManager.AddCategory(newCategory);
+
         await _publishEndpoint.Publish<CategoryMessage>(new CategoryMessage() { Category = addCategory, OperationType = CategoryOperationTypes.Add });
         return Ok(addCategory);
     }
@@ -76,7 +74,10 @@ public class CategoriesController : Controller
         {
             return BadRequest(ex.Message);
         }
+
         var data = await _requestClient.GetResponse<CategoryResponseModel>(category);
+        await _publishEndpoint.Publish<CategoryMessage>(new CategoryMessage() { Category = data.Message, OperationType = CategoryOperationTypes.Get });
+        
         return Ok(data);
     }
 
