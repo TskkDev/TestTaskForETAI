@@ -1,3 +1,4 @@
+
 namespace SharedModels.RequestModels;
 
 public class CategoryRequestModel

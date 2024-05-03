@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using SharedModels.MessageModels;
 using SharedModels.RequestModels;
 using SharedModels.ResponseModels;
+using SharedModels.Enums;
+using CategoriesService__DAL.Entities;
 
 
 namespace CategoriesService__WebApi.Controllers;
@@ -12,28 +14,36 @@ namespace CategoriesService__WebApi.Controllers;
 [ApiController]
 public class CategoriesController : Controller
 {
-    private readonly CategoryManager _categoryManager;    
+    private readonly CategoryManager _categoryManager;
     private readonly IPublishEndpoint _publishEndpoint;
+    private readonly IRequestClient<CategoryListMessage> _requestClientList;
+    private readonly IRequestClient<CategoryResponseModel> _requestClient;
 
-    public CategoriesController(IConfiguration configuration, IPublishEndpoint publishEndpoint)
+    public CategoriesController(IConfiguration configuration,
+        IPublishEndpoint publishEndpoint,
+        IRequestClient<CategoryListMessage> requestClientList,
+        IRequestClient<CategoryResponseModel> requestClient
+        )
     {
         _categoryManager = new CategoryManager( configuration
             .GetConnectionString("DB") ?? throw new NullReferenceException());
         _publishEndpoint = publishEndpoint;
+        _requestClientList = requestClientList;
+        _requestClient = requestClient;
     }
 
-    [HttpPost("/addCategory")]
+    [HttpPost("/category/add")]
     public async Task<IActionResult> AddCategory(CategoryRequestModel newCategory)
     {
         if (string.IsNullOrEmpty(newCategory.Name))
             return NoContent();
 
         var addCategory = _categoryManager.AddCategory(newCategory);
-        await _publishEndpoint.Publish(addCategory);
+        await _publishEndpoint.Publish<CategoryMessage>(new CategoryMessage() { Category = addCategory, OperationType = CategoryOperationTypes.Add });
         return Ok(addCategory);
     }
 
-    [HttpPatch("/updateCategory/categoryId={categoryId:int}")]
+    [HttpPatch("/category/{categoryId:int}/update")]
     public async Task<IActionResult> UpdateCategory(int categoryId, CategoryRequestModel newCategory)
     {
         if (string.IsNullOrEmpty(newCategory.Name))
@@ -47,11 +57,14 @@ public class CategoriesController : Controller
         {
             return NotFound(ex.Message);
         }
-        await _publishEndpoint.Publish(updatedCategory);
-        return Ok(updatedCategory);
+        var data = await _requestClient.GetResponse<CategoryResponseModel>(updatedCategory);
+
+        await _publishEndpoint.Publish<CategoryMessage>( new CategoryMessage() {Category = data.Message, OperationType = CategoryOperationTypes.Update });
+        
+        return Ok(data);
     }
 
-    [HttpGet("/getCategoryById/categoryId={categoryId:int}")]
+    [HttpGet("/category/{categoryId:int}/getById")]
     public async Task<IActionResult> GetCategoryById(int categoryId)
     {
         CategoryResponseModel category;
@@ -63,11 +76,11 @@ public class CategoriesController : Controller
         {
             return BadRequest(ex.Message);
         }
-        await _publishEndpoint.Publish(category);
-        return Ok(category);
+        var data = await _requestClient.GetResponse<CategoryResponseModel>(category);
+        return Ok(data);
     }
 
-    [HttpGet("GetAllTopicCategory")]
+    [HttpGet("/category/getAllTopicCategory")]
     public async Task<IActionResult> GetAllTopicCategory()
     {
         List<CategoryResponseModel> categories;
@@ -79,7 +92,7 @@ public class CategoriesController : Controller
         {
             return BadRequest(ex.Message);
         }
-        await _publishEndpoint.Publish(new CategoryListMessage() { Categories = categories });
-        return Ok(categories);
+        var data = await _requestClientList.GetResponse<CategoryListMessage>(new CategoryListMessage() { Categories = categories});
+        return Ok(data.Message.Categories);
     }
 }

@@ -1,4 +1,7 @@
+using CategoriesService__WebApi.MassTransit;
 using MassTransit;
+using SharedModels.MessageModels;
+using SharedModels.ResponseModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq();
+    x.AddConsumer<GoodsModifyConsumer, GoodsModifyConsumerDefinition>();
+    x.AddRequestClient<CategoryListMessage>();
+    x.AddRequestClient<CategoryResponseModel>();
 });
 
 builder.Services.AddControllers();

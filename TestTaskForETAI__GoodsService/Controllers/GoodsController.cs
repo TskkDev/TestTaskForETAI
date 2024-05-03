@@ -1,12 +1,13 @@
-using GoodsService__BLL.Interfaces;
 using GoodsService__BLL.Managers;
 using GoodsService__BLL.Services;
+using LinqToDB.Common;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels.MessageModels;
 using SharedModels.RequestModels;
 using SharedModels.ResponseModels;
-
+using SharedModels.Enums;
+using GoodsService__BLL.Interface;
 
 namespace GoodsService__WebApi.Controllers;
 
@@ -24,7 +25,7 @@ public class GoodsController : Controller
         _publishEndpoint = publishEndpoint;
     }
 
-    [HttpPost("/addGood")]
+    [HttpPost("/good/add")]
     public async Task<IActionResult> AddGood(GoodRequestModel newGood)
     {
         GoodResponseModel addGood;
@@ -33,11 +34,11 @@ public class GoodsController : Controller
             return NoContent();
         if (newGood.CategoryId <= 0) return NotFound();
         addGood = _goodManager.AddGood(newGood);
-        await _publishEndpoint.Publish(addGood);
+        await _publishEndpoint.Publish<GoodMessage>(new GoodMessage() { Good = addGood, OperationType = GoodOperationTypes.Add });
         return Ok(addGood);
     }
 
-    [HttpPatch("/updateGood/goodId={goodId:int}")]
+    [HttpPatch("/goods/{goodId:int}/update")]
     public async Task<IActionResult> UpdateGood(int goodId, GoodRequestModel newGood)
     {
         if (string.IsNullOrEmpty(newGood.Name) || string.IsNullOrEmpty(newGood.Dics)
@@ -52,11 +53,11 @@ public class GoodsController : Controller
         {
             return NotFound(ex.Message);
         }
-        await _publishEndpoint.Publish<GoodRequestModel>(updatedGood);
+        await _publishEndpoint.Publish<GoodMessage>(new GoodMessage() { Good = updatedGood, OperationType= GoodOperationTypes.Update});
         return Ok(updatedGood);
     }
 
-    [HttpDelete("/deleteGood/goodId={goodId:int}")]
+    [HttpDelete("/goods/{goodId:int}/delete")]
     public async Task<IActionResult> DeleteGood(int goodId)
     {
         try
@@ -67,10 +68,11 @@ public class GoodsController : Controller
         {
             return NotFound(ex.Message);
         }
+        await _publishEndpoint.Publish<GoodMessage>(new GoodMessage() { Good = new GoodResponseModel(){Id = goodId} ,OperationType = GoodOperationTypes.Delete});
         return Ok();
     }
 
-    [HttpGet("getAllGoodsFromCategory/categoryId={categoryId:int}")]
+    [HttpGet("/caregory/{categoryId:int}/goods")]
     public async Task<IActionResult> GetAllGoodsFromCategory(int categoryId)
     {
         List<GoodResponseModel> goods;
@@ -83,10 +85,10 @@ public class GoodsController : Controller
         {
             return BadRequest(ex.Message);
         }
-        await _publishEndpoint.Publish(new GoodsListMessage() { Goods = goods });
+        await _publishEndpoint.Publish<GoodsListMessage>(new GoodsListMessage() { Goods = goods });
         return Ok(goods);
     }
-    [HttpGet("sortGoods/categoryId={categoryId:int}")]
+    [HttpGet("/caregory/{categoryId:int}/sortGoods")]
     public async Task<IActionResult> SortGoods(int categoryId,
         string fieldName, bool ascending)
     {
@@ -103,7 +105,7 @@ public class GoodsController : Controller
         {
             return BadRequest(invalidEx.Message);
         }
-        await _publishEndpoint.Publish(new GoodsListMessage() { Goods = goods });
+        await _publishEndpoint.Publish<GoodsListMessage>(new GoodsListMessage() { Goods = goods });
         return Ok(goods);
     }
 }

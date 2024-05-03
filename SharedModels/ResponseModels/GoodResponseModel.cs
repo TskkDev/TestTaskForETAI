@@ -1,3 +1,4 @@
+
 namespace SharedModels.ResponseModels;
 
 public class GoodResponseModel

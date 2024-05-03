@@ -2,7 +2,6 @@
 using CategoriesService__DAL.Entities;
 using CategoriesService__DAL.Repositories;
 using LinqToDB.Common;
-using SharedModels.MessageModels;
 using SharedModels.RequestModels;
 using SharedModels.ResponseModels;
 using System;

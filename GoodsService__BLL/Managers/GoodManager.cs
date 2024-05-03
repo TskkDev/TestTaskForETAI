@@ -1,4 +1,4 @@
-﻿using GoodsService__BLL.Interfaces;
+﻿using GoodsService__BLL.Interface;
 using GoodsService__BLL.Services;
 using GoodsService__DAL.Enities;
 using GoodsService__DAL.Repositories;
@@ -50,6 +50,15 @@ namespace GoodsService__BLL.Managers
                 if (deletedGood is null) throw new NullReferenceException("Doesn't found good for delete");
                 repos.Delete(goodId);
                 return;
+            }
+        }
+
+        public int BackCountGoodsInCategory(int categoryId)
+        {
+            using (var db = new DbConection(_connectionString))
+            {
+                var repos = new GoodsRepostiry(db);
+                return repos.GetAllGoodsFromCategory(categoryId).ToList().Count();
             }
         }
 
