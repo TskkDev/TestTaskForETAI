@@ -1,6 +1,6 @@
+using CategoriesService__BLL.Models;
 using CategoriesService__DAL.Entities;
-using SharedModels.RequestModels;
-using SharedModels.ResponseModels;
+using SharedModels.MessageModels.RespondModels.Request;
 
 namespace CategoriesService__BLL.Services;
 
@@ -14,6 +14,33 @@ public class ConvertModelToEntityService
             ParentCategoryId = categoryReq.ParentCategoryId,
         };
     }
+
+
+
+    public GetCountGoodsRequest ResponseModelToGetCountGoodsRequest(CategoryResponseModel category)
+    {
+        return new GetCountGoodsRequest()
+        {
+            Id = category.Id,
+            Name = category.Name,
+            ParentCategoryId = category.ParentCategoryId,
+            SubCategories = category.SubCategories.Select(c => new GetCountGoodsRequest()
+            {
+                Id = c.Id,
+                Name = c.Name,
+                ParentCategoryId = c.ParentCategoryId,
+            }).ToList()
+        };
+    }
+    public ListGetCountGoodsRequest ListResponseModelToListGetCountGoodsRequest(List<CategoryResponseModel> categories)
+    {
+        return new ListGetCountGoodsRequest()
+        {
+            Categories = categories.Select(c => ResponseModelToGetCountGoodsRequest(c)).ToList()
+        };
+    }
+
+
 
     public CategoryResponseModel EntityToResponseModel(Category category)
     {

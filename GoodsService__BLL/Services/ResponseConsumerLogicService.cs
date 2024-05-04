@@ -1,10 +1,6 @@
 ﻿using GoodsService__BLL.Interface;
-using SharedModels.ResponseModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SharedModels.MessageModels.RespondModels.Request;
+using SharedModels.MessageModels.RespondModels.Response;
 
 namespace GoodsService__BLL.Services
 {
@@ -15,15 +11,30 @@ namespace GoodsService__BLL.Services
         {
             _manager = manager;
         }
-        public CategoryResponseModel CategoryResponseConsumerHelper(CategoryResponseModel categoryResponseModel)
+        public GetCountGoodsResponse CategoryResponseConsumerHelper(GetCountGoodsRequest countGoodsRequest)
         {
-            categoryResponseModel.CountGoods = _manager.BackCountGoodsInCategory(categoryResponseModel.Id);
-            categoryResponseModel.SubCategories.ForEach(x=>x.CountGoods = _manager.BackCountGoodsInCategory(x.Id));
-            return categoryResponseModel;
+            var countGoodsResponse = new GetCountGoodsResponse()
+            {
+                Id = countGoodsRequest.Id,
+                Name = countGoodsRequest.Name,
+                ParentCategoryId = countGoodsRequest.ParentCategoryId,
+                CountGoods = _manager.BackCountGoodsInCategory(countGoodsRequest.Id),
+                SubCategories = countGoodsRequest.SubCategories.Select(sc => new GetCountGoodsResponse()
+                {
+                    Id = sc.Id,
+                    Name = sc.Name,
+                    ParentCategoryId = sc.ParentCategoryId,
+                    CountGoods = _manager.BackCountGoodsInCategory(sc.Id),
+                }).ToList()
+            };
+            return countGoodsResponse;
         }
-        public List<CategoryResponseModel> CategorListConsumerHelper(List<CategoryResponseModel> categoryResponseModel)
+        public ListGetCountGoodsResponse CategoriesListConsumerHelper(List<GetCountGoodsRequest> countsGoodsRequest)
         {
-            return categoryResponseModel.Select(c => CategoryResponseConsumerHelper(c)).ToList();
+            return new ListGetCountGoodsResponse() 
+            {
+                Categories = countsGoodsRequest.Select(sc => CategoryResponseConsumerHelper(sc)).ToList()
+            };
         }
     }
 }

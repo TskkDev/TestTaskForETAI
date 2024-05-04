@@ -1,10 +1,11 @@
 using CategoriesService__BLL.Interfaces;
 using CategoriesService__BLL.Managers;
-using CategoriesService__WebApi.MassTransit.ModifyConsumers;
-using CategoriesService__WebApi.MassTransit.ResponseComsumers;
+using CategoriesService__WebApi.MassTransit.ModifyConsumers.Consumers;
+using CategoriesService__WebApi.MassTransit.ResponseComsumers.Consumers;
 using MassTransit;
-using SharedModels.MessageModels;
-using SharedModels.ResponseModels;
+using SharedModels.Constants;
+using SharedModels.MessageModels.RespondModels.Request;
+using SharedModels.MessageModels.RespondModels.Response;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,18 +13,29 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMassTransit(x =>
 {
-    x.UsingRabbitMq();
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("localhost", "/", h =>
+        {
+            var rabbit = builder.Configuration.GetSection("RabitMQ");
+            h.Username(rabbit.GetValue<string>("UserName"));
+            h.Password(rabbit.GetValue<string>("Password"));
+        });
+        cfg.ConfigureEndpoints(context);
+    });
 
-    x.AddRequestClient<CategoryListMessage>();
-    x.AddRequestClient<CategoryResponseModel>();
 
-    /*x.AddConsumer<GoodModifyConsumer>();
-    x.AddConsumer<GoodResponseConsumer>();
-    x.AddConsumer<GoodsResponseConsumer>();*/
-
-    x.AddConsumer<GoodModifyConsumer, GoodModifyConsumerDefinition>();
-    x.AddConsumer<GoodResponseConsumer, GoodResponseConsumerDefinition>();
-    x.AddConsumer<GoodsResponseConsumer, GoodsResponseConsumerDefinition>();
+    x.AddConsumer<GoodModifyConsumer>().Endpoint(e => e.Name = QueueConstants.NotificationQueueFromGoodsToCategories); ;
+    x.AddConsumer<GetCategoriesNameConsumer>().Endpoint(e => e.Name = QueueConstants.ResponseListsQueueBetweenServices); ;
+    x.AddConsumer<GetCategoryNameConsumer>().Endpoint(e => e.Name = QueueConstants.ResponseQueueBetweenServices); ;
+    /*
+    x.AddRequestClient<GetCountGoodsResponse>(new Uri($"queue:{QueueConstants.ResponseQueueBetweenServices}?durable=false"));
+    x.AddRequestClient<ListGetCountGoodsResponse>(new Uri($"queue:{QueueConstants.ResponseListsQueueBetweenServices}?durable=false"));
+    */
+    
+    x.AddRequestClient<GetCountGoodsRequest>(new Uri("exchange:"+QueueConstants.ResponseQueueBetweenServices));
+    x.AddRequestClient<ListGetCountGoodsRequest>(new Uri("exchange:" + QueueConstants.ResponseListsQueueBetweenServices));
+    
 
 });
 builder.Services.AddScoped<ICategoryManager>(prov => new CategoryManager(builder.Configuration.GetConnectionString("DB")));

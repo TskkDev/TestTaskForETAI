@@ -1,5 +1,5 @@
-﻿using SharedModels.RequestModels;
-using SharedModels.ResponseModels;
+﻿
+using CategoriesService__BLL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

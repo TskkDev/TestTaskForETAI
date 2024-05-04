@@ -1,10 +1,9 @@
 ﻿using CategoriesService__BLL.Interfaces;
+using CategoriesService__BLL.Models;
 using CategoriesService__BLL.Services;
 using CategoriesService__DAL.Entities;
 using CategoriesService__DAL.Repositories;
-using SharedModels.MessageModels;
-using SharedModels.RequestModels;
-using SharedModels.ResponseModels;
+
 
 namespace CategoriesService__BLL.Managers
 {

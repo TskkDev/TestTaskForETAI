@@ -1,5 +1,6 @@
 ﻿using CategoriesService__BLL.Interfaces;
-using SharedModels.ResponseModels;
+using SharedModels.MessageModels.RespondModels.Request;
+using SharedModels.MessageModels.RespondModels.Response;
 
 namespace CategoriesService__BLL.Services
 {
@@ -10,18 +11,25 @@ namespace CategoriesService__BLL.Services
         {
             _manager = manager;
         }
-        public CategoryResponseModel? GetGoodResponseModel(GoodResponseModel goodResponseModel) 
+        public GetCategoryNameResponse GoodResponseConsumerHelper(GetCategoryNameRequest categoryNameRequest)
         {
-            return _manager.GetCategoryById(goodResponseModel.Id);
+            var categoryNameResponse = new GetCategoryNameResponse()
+            {
+                Id = categoryNameRequest.Id,
+                Name = categoryNameRequest.Name,
+                Dics = categoryNameRequest.Dics,
+                Price = categoryNameRequest.Price,
+                CategoryId = categoryNameRequest.CategoryId,
+                CategoryName = _manager.GetCategoryNameById(categoryNameRequest.CategoryId)
+            };
+            return categoryNameResponse;
         }
-        public GoodResponseModel GoodResponseConsumerHelper(GoodResponseModel goodResponseModel)
+        public ListGetCategoryNameResponse GoodListConsumerHelper(List<GetCategoryNameRequest> categoriesNameRequests)
         {
-            goodResponseModel.CategoryName = _manager.GetCategoryNameById(goodResponseModel.CategoryId);
-            return goodResponseModel;
-        }
-        public List<GoodResponseModel> GoodListConsumerHelper(List<GoodResponseModel> goodsResponseModel)
-        {
-            return goodsResponseModel.Select(g => GoodResponseConsumerHelper(g)).ToList();
+            return new ListGetCategoryNameResponse()
+            {
+                Goods = categoriesNameRequests.Select(cn => GoodResponseConsumerHelper(cn)).ToList()
+            };       
         }
     }
 }

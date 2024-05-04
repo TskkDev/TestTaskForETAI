@@ -1,10 +1,13 @@
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using SharedModels.MessageModels;
-using SharedModels.RequestModels;
-using SharedModels.ResponseModels;
 using SharedModels.Enums;
 using CategoriesService__BLL.Interfaces;
+using SharedModels.MessageModels.NotifyModels;
+using CategoriesService__BLL.Models;
+using SharedModels.MessageModels.RespondModels.Response;
+using CategoriesService__BLL.Services;
+using SharedModels.MessageModels.RespondModels.Request;
+using CategoriesService__DAL.Entities;
 
 namespace CategoriesService__WebApi.Controllers;
 
@@ -14,35 +17,41 @@ public class CategoriesController : Controller
 {
     private readonly ICategoryManager _categoryManager;
     private readonly IPublishEndpoint _publishEndpoint;
-    private readonly IRequestClient<CategoryListMessage> _requestClientList;
-    private readonly IRequestClient<CategoryResponseModel> _requestClient;
+    private readonly IRequestClient<ListGetCountGoodsRequest> _requestClientList;
+    private readonly IRequestClient<GetCountGoodsRequest> _requestClient;
+    private readonly ConvertModelToEntityService _converter;
 
     public CategoriesController(ICategoryManager categoryManager,
         IPublishEndpoint publishEndpoint,
-        IRequestClient<CategoryListMessage> requestClientList,
-        IRequestClient<CategoryResponseModel> requestClient
-        )
+        IRequestClient<ListGetCountGoodsRequest> requestClientList,
+        IRequestClient<GetCountGoodsRequest> requestClient)
     {
         _categoryManager = categoryManager;
         _publishEndpoint = publishEndpoint;
         _requestClientList = requestClientList;
         _requestClient = requestClient;
+        _converter = new ConvertModelToEntityService();
     }
 
     [HttpPost("/category/add")]
-    public async Task<IActionResult> AddCategory(CategoryRequestModel newCategory)
+    public async Task<IActionResult> AddCategory(CategoryRequestModel newCategory, CancellationToken cancellationToken)
     {
         if (string.IsNullOrEmpty(newCategory.Name))
             return NoContent();
 
         var addCategory = _categoryManager.AddCategory(newCategory);
 
-        await _publishEndpoint.Publish<CategoryMessage>(new CategoryMessage() { Category = addCategory, OperationType = CategoryOperationTypes.Add });
-        return Ok(addCategory);
+        var data = await _requestClient.GetResponse<GetCountGoodsResponse>
+            (_converter.ResponseModelToGetCountGoodsRequest(addCategory), cancellationToken);
+        await _publishEndpoint.Publish<CategoryMessage>(new CategoryMessage() { Category = data.Message, OperationType = CategoryOperationTypes.Add });
+        
+        
+        return Ok(data.Message);
     }
 
     [HttpPatch("/category/{categoryId:int}/update")]
-    public async Task<IActionResult> UpdateCategory(int categoryId, CategoryRequestModel newCategory)
+    public async Task<IActionResult> UpdateCategory(int categoryId, CategoryRequestModel newCategory
+        , CancellationToken cancellationToken)
     {
         if (string.IsNullOrEmpty(newCategory.Name))
             return BadRequest();
@@ -55,15 +64,18 @@ public class CategoriesController : Controller
         {
             return NotFound(ex.Message);
         }
-        var data = await _requestClient.GetResponse<CategoryResponseModel>(updatedCategory);
 
-        await _publishEndpoint.Publish<CategoryMessage>( new CategoryMessage() {Category = data.Message, OperationType = CategoryOperationTypes.Update });
+
+        var data = await _requestClient.GetResponse<GetCountGoodsResponse>(
+            _converter.ResponseModelToGetCountGoodsRequest(updatedCategory), cancellationToken);
+        await _publishEndpoint.Publish<CategoryMessage>( 
+            new CategoryMessage() {Category = data.Message, OperationType = CategoryOperationTypes.Update });
         
         return Ok(data);
     }
 
     [HttpGet("/category/{categoryId:int}/getById")]
-    public async Task<IActionResult> GetCategoryById(int categoryId)
+    public async Task<IActionResult> GetCategoryById(int categoryId, CancellationToken cancellationToken)
     {
         CategoryResponseModel category;
         try
@@ -75,14 +87,16 @@ public class CategoriesController : Controller
             return BadRequest(ex.Message);
         }
 
-        var data = await _requestClient.GetResponse<CategoryResponseModel>(category);
-        await _publishEndpoint.Publish<CategoryMessage>(new CategoryMessage() { Category = data.Message, OperationType = CategoryOperationTypes.Get });
+        var data = await _requestClient.GetResponse<GetCountGoodsResponse>(
+            _converter.ResponseModelToGetCountGoodsRequest(category), cancellationToken);
+        await _publishEndpoint.Publish<CategoryMessage>(new CategoryMessage()
+        { Category = data.Message, OperationType = CategoryOperationTypes.Get });
         
         return Ok(data);
     }
 
     [HttpGet("/category/getAllTopicCategory")]
-    public async Task<IActionResult> GetAllTopicCategory()
+    public async Task<IActionResult> GetAllTopicCategory(CancellationToken cancellationToken)
     {
         List<CategoryResponseModel> categories;
         try
@@ -93,7 +107,10 @@ public class CategoriesController : Controller
         {
             return BadRequest(ex.Message);
         }
-        var data = await _requestClientList.GetResponse<CategoryListMessage>(new CategoryListMessage() { Categories = categories});
+
+        var data = await _requestClientList.GetResponse<ListGetCountGoodsResponse>(
+            _converter.ListResponseModelToListGetCountGoodsRequest(categories), cancellationToken);
+        
         return Ok(data.Message.Categories);
     }
 }
