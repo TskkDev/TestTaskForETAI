@@ -27,15 +27,15 @@ builder.Services.AddMassTransit(x =>
 });
 
     x.AddConsumer<CategoryModifyConsumer>().Endpoint(e=>e.Name = QueueConstants.NotificationQueueFromCategoriesToGoods);
-    x.AddConsumer<GetCountOfGoodsConsumer>().Endpoint(e => e.Name = QueueConstants.ResponseQueueBetweenServices);
-    x.AddConsumer<GetCountsOfGoodsConsumer>().Endpoint(e => e.Name = QueueConstants.ResponseListsQueueBetweenServices); ;
+    x.AddConsumer<GetCountOfGoodsConsumer>().Endpoint(e => e.Name = QueueConstants.ResponseQueueFromGood);
+    x.AddConsumer<GetCountsOfGoodsConsumer>().Endpoint(e => e.Name = QueueConstants.ResponseListsQueueFromGood); ;
     /*
     x.AddRequestClient<GetCategoryNameResponse>(new Uri($"queue:{QueueConstants.ResponseQueueBetweenServices}?durable=false"));
     x.AddRequestClient<ListGetCategoryNameResponse>(new Uri($"queue:{QueueConstants.ResponseListsQueueBetweenServices}?durable=false"));
     */
     
-    x.AddRequestClient<GetCategoryNameRequest>(new Uri("exchange:" + QueueConstants.ResponseQueueBetweenServices));
-    x.AddRequestClient<ListGetCategoryNameRequest>(new Uri("exchange:" + QueueConstants.ResponseListsQueueBetweenServices));
+    x.AddRequestClient<GetCategoryNameRequest>(new Uri("exchange:" + QueueConstants.ResponseQueueFromCategory));
+    x.AddRequestClient<ListGetCategoryNameRequest>(new Uri("exchange:" + QueueConstants.ResponseListsQueueFromCategory));
     
 
 });
