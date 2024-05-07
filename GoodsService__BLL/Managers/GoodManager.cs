@@ -3,8 +3,7 @@ using GoodsService__BLL.Models;
 using GoodsService__BLL.Services;
 using GoodsService__DAL.Enities;
 using GoodsService__DAL.Repositories;
-
-
+using SharedModels.Models.RespondModels.Request;
 
 namespace GoodsService__BLL.Managers
 {
@@ -18,26 +17,25 @@ namespace GoodsService__BLL.Managers
             _converter = new ConvertModelToEntityService();
         }
 
-        public GoodResponseModel AddGood(GoodRequestModel newGood)
+        public GetCategoryNameRequest AddGood(GoodRequestModel newGood)
         {
             using (var db = new DbConection(_connectionString))
             {
                 var repos = new GoodsRepostiry(db);
-                return(_converter.EntityToResponseModel(
+                return(_converter.EntityToGetCategoryNameResponse(
                     repos.Add(_converter.RequestModelToEntity(newGood))));
             }
         }
 
-        public GoodResponseModel UpdateGood(int goodId, GoodRequestModel newGood)
+        public GetCategoryNameRequest UpdateGood(int goodId, GoodRequestModel newGood)
         {
             using (var db = new DbConection(_connectionString))
             {
                 var repos = new GoodsRepostiry(db);
                 var oldGood = repos.GetById(goodId);
                 if (oldGood is null) throw new NullReferenceException("Old good doesn't found");
-                return(_converter.EntityToResponseModel(
-                    repos.Update(oldGood, _converter.RequestModelToEntity(newGood))
-                    ));
+                return(_converter.EntityToGetCategoryNameResponse(
+                    repos.Update(oldGood, _converter.RequestModelToEntity(newGood))));
             }
         }
 
@@ -62,18 +60,18 @@ namespace GoodsService__BLL.Managers
             }
         }
 
-        public List<GoodResponseModel> GetAllGoodsFromCategory(int categoryId)
+        public ListGetCategoryNameRequest GetAllGoodsFromCategory(int categoryId)
         {
             using (var db = new DbConection(_connectionString))
             {
                 var repos = new GoodsRepostiry(db);
                 var goods = repos.GetAllGoodsFromCategory(categoryId).ToList();
                 if (goods.Count() == 0) throw new NullReferenceException("Doesn't have good on this category");
-                return _converter.EntitiesToResponseModels(goods);
+                return _converter.EntitiesToListGetCategoryNameRequest(goods);
             }
         }
 
-        public List<GoodResponseModel> SortGoods(int categoryId,
+        public ListGetCategoryNameRequest SortGoods(int categoryId,
             string fieldName, bool ascending)
         {
             using (var db = new DbConection(_connectionString))
@@ -90,7 +88,7 @@ namespace GoodsService__BLL.Managers
                 {
                     throw new InvalidDataException("FieldName is invalid");
                 }
-                return _converter.EntitiesToResponseModels(goodsWithSort);
+                return _converter.EntitiesToListGetCategoryNameRequest(goodsWithSort);
             }
         }
     }

@@ -2,11 +2,11 @@ using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels.Enums;
 using GoodsService__BLL.Interface;
-using SharedModels.MessageModels.NotifyModels;
-using SharedModels.MessageModels.RespondModels.Response;
 using GoodsService__BLL.Models;
 using GoodsService__BLL.Services;
-using SharedModels.MessageModels.RespondModels.Request;
+using SharedModels.Models.MessageModels.NotifyModels;
+using SharedModels.Models.RespondModels.Request;
+using SharedModels.Models.RespondModels.Response;
 
 namespace GoodsService__WebApi.Controllers;
 
@@ -37,8 +37,9 @@ public class GoodsController : Controller
     [HttpPost("/good/add")]
     public async Task<IActionResult> AddGood(GoodRequestModel newGood, CancellationToken cancellationToken)
     {
-        GoodResponseModel addGood;
+        GetCategoryNameRequest addGood;
         Response<GetCategoryNameResponse> data;
+
         if (string.IsNullOrEmpty(newGood.Name) || string.IsNullOrEmpty(newGood.Dics)
                 || newGood.Price <= 0)
             return BadRequest();
@@ -47,7 +48,7 @@ public class GoodsController : Controller
         try
         {
             data = await _requestClient.GetResponse<GetCategoryNameResponse>(
-                _converter.RequestModelToGetCategoryNameResponse(newGood), cancellationToken);
+                _converter.RequestModelToGetCategoryNameRequest(newGood), cancellationToken);
         }
         catch (MassTransitException ex)
         {
@@ -59,14 +60,17 @@ public class GoodsController : Controller
 
         data.Message.Id = addGood.Id;
 
-        await _publishEndpoint.Publish<GoodMessage>(new GoodMessage() { Good = data.Message, OperationType = GoodOperationTypes.Add });
+        await _publishEndpoint.Publish<GoodMessage>(new GoodMessage() { Good = data.Message,
+            OperationType = GoodOperationTypes.Add });
+
+
         return Ok(data.Message);
     }
 
     [HttpPatch("/goods/{goodId:int}/update")]
     public async Task<IActionResult> UpdateGood(int goodId, GoodRequestModel newGood, CancellationToken cancellationToken)
     {
-        GoodResponseModel updatedGood;
+        GetCategoryNameRequest updatedGood;
         Response<GetCategoryNameResponse> data;
 
         if (string.IsNullOrEmpty(newGood.Name) || string.IsNullOrEmpty(newGood.Dics)
@@ -76,7 +80,7 @@ public class GoodsController : Controller
         try
         {
             data = await _requestClient.GetResponse<GetCategoryNameResponse>(
-                _converter.RequestModelToGetCategoryNameResponse(newGood), cancellationToken);
+                _converter.RequestModelToGetCategoryNameRequest(newGood), cancellationToken);
             updatedGood = _goodManager.UpdateGood(goodId, newGood);
         }
         catch (NullReferenceException ex) 
@@ -111,7 +115,7 @@ public class GoodsController : Controller
     [HttpGet("/caregory/{categoryId:int}/goods")]
     public async Task<IActionResult> GetAllGoodsFromCategory(int categoryId, CancellationToken cancellationToken)
     {
-        List<GoodResponseModel> goods;
+        ListGetCategoryNameRequest goods;
 
         try
         {
@@ -123,9 +127,8 @@ public class GoodsController : Controller
             return BadRequest(ex.Message);
         }
 
-        var goodsRequest = _converter.ListResponseModelToListGetCategoryNameRequest(goods);
         var data = await _requestClientList.GetResponse<ListGetCategoryNameResponse>(
-            goodsRequest, cancellationToken);
+            goods, cancellationToken);
         
         return Ok(data.Message.Goods);
     }
@@ -133,7 +136,7 @@ public class GoodsController : Controller
     public async Task<IActionResult> SortGoods(int categoryId,
         string fieldName, bool ascending, CancellationToken cancellationToken)
     {
-        List<GoodResponseModel> goods;
+        ListGetCategoryNameRequest goods;
 
         try
         {
@@ -147,9 +150,8 @@ public class GoodsController : Controller
         {
             return BadRequest(invalidEx.Message);
         }
-        var goodsRequest = _converter.ListResponseModelToListGetCategoryNameRequest(goods);
         var data = await _requestClientList.GetResponse<ListGetCategoryNameResponse>(
-            goodsRequest, cancellationToken);
+            goods, cancellationToken);
         
         return Ok(data.Message.Goods);
     }

@@ -1,8 +1,8 @@
 ﻿using GoodsService__BLL.Interface;
 using GoodsService__BLL.Services;
 using MassTransit;
-using SharedModels.MessageModels.RespondModels.Request;
-using SharedModels.MessageModels.RespondModels.Response;
+using SharedModels.Models.RespondModels.Request;
+using SharedModels.Models.RespondModels.Response;
 
 namespace GoodsService__WebApi.MassTransit.ResponseConsumers.Consumers;
 

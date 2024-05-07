@@ -1,9 +1,8 @@
 ﻿using CategoriesService__BLL.Interfaces;
 using CategoriesService__BLL.Services;
 using MassTransit;
-using SharedModels.MessageModels.NotifyModels;
-using SharedModels.MessageModels.RespondModels.Request;
-using SharedModels.MessageModels.RespondModels.Response;
+using SharedModels.Models.RespondModels.Request;
+using SharedModels.Models.RespondModels.Response;
 
 namespace CategoriesService__WebApi.MassTransit.ResponseComsumers.Consumers;
 

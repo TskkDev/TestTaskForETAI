@@ -1,5 +1,5 @@
 
-namespace SharedModels.MessageModels.RespondModels.Response;
+namespace SharedModels.Models.RespondModels.Response;
 
 public class GetCategoryNameResponse
 {

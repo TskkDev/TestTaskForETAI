@@ -1,9 +1,9 @@
 ﻿using CategoriesService__BLL.Interfaces;
-using CategoriesService__BLL.Models;
 using CategoriesService__BLL.Services;
 using CategoriesService__DAL.Entities;
 using CategoriesService__DAL.Repositories;
-
+using SharedModels.Models.RequestModels;
+using SharedModels.Models.RespondModels.Request;
 
 namespace CategoriesService__BLL.Managers
 {
@@ -17,24 +17,24 @@ namespace CategoriesService__BLL.Managers
             _converter = new ConvertModelToEntityService();
         }
 
-        public CategoryResponseModel AddCategory (CategoryRequestModel newCategory)
+        public GetCountGoodsRequest AddCategory (CategoryRequestModel newCategory)
         {
             using (var db = new DbConection(_connectionString))
             {
                 var repos = new CategoriesRepository(db);
-                return(_converter.EntityToResponseModel(
+                return(_converter.EntityToGetCountGoodsRequest(
                     repos.Add(_converter.RequestModelToEntity(newCategory))));
             }
         }
 
-        public CategoryResponseModel UpdateCategory(int categoryId, CategoryRequestModel newCategory)
+        public GetCountGoodsRequest UpdateCategory(int categoryId, CategoryRequestModel newCategory)
         {
             using (var db = new DbConection(_connectionString))
             {
                 var repos = new CategoriesRepository(db);
                 var oldCategory = repos.GetById(categoryId);
                 if (oldCategory is null) throw new NullReferenceException("Old category doesn't found");
-                return (_converter.EntityToResponseModel(
+                return (_converter.EntityToGetCountGoodsRequest(
                     repos.Update(oldCategory, _converter.RequestModelToEntity(newCategory))));
             }
         }
@@ -46,25 +46,25 @@ namespace CategoriesService__BLL.Managers
                 return repos.GetCategoryNameById(categoryId);
             }
         }
-        public CategoryResponseModel? GetCategoryById(int categoryId)
+        public GetCountGoodsRequest? GetCategoryById(int categoryId)
         {
             using (var db = new DbConection(_connectionString))
             {
                 var repos = new CategoriesRepository(db);
                 var category = repos.GetById(categoryId);
                 if(category is null) throw new NullReferenceException("Category doesn't found");
-                 return(_converter.EntityToResponseModel(category));
+                 return(_converter.EntityToGetCountGoodsRequest(category));
             }
         }
 
-        public List<CategoryResponseModel> GetAllTopicCategory()
+        public ListGetCountGoodsRequest GetAllTopicCategory()
         {
             using (var db = new DbConection(_connectionString))
             {
                 var repos = new CategoriesRepository(db);
                 var categories = repos.GetAllTopicCategories().ToList();
                 if(categories.Count == 0) throw new NullReferenceException("No topic category");
-                return _converter.EntitiesToResponseModels(categories);
+                return _converter.EntitiesToListGetCountGoodsRequest(categories);
             }
         }
     }

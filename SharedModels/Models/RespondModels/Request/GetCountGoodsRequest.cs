@@ -1,5 +1,5 @@
 
-namespace SharedModels.MessageModels.RespondModels.Request;
+namespace SharedModels.Models.RespondModels.Request;
 
 public class GetCountGoodsRequest
 {

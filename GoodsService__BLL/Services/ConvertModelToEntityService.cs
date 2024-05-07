@@ -1,7 +1,6 @@
 using GoodsService__BLL.Models;
 using GoodsService__DAL.Enities;
-using SharedModels.MessageModels.RespondModels.Request;
-using SharedModels.MessageModels.RespondModels.Response;
+using SharedModels.Models.RespondModels.Request;
 
 namespace GoodsService__BLL.Services;
 
@@ -19,40 +18,21 @@ public class ConvertModelToEntityService
     }
 
 
-    public GetCategoryNameRequest ResponseModelToGetCategoryNameResponse(GoodResponseModel good)
-    {
-        return new GetCategoryNameRequest()
-        {
-            Id = good.Id,
-            Name = good.Name,
-            Dics = good.Dics,
-            Price = good.Price,
-            CategoryId = good.CategoryId
-        };
-    }
-    public ListGetCategoryNameRequest ListResponseModelToListGetCategoryNameRequest(List<GoodResponseModel> goods)
-    {
-        return new ListGetCategoryNameRequest()
-        {
-            Goods = goods.Select(g => ResponseModelToGetCategoryNameResponse(g)).ToList()
-        };
-    }
-    public GetCategoryNameRequest RequestModelToGetCategoryNameResponse(GoodRequestModel good)
+    public GetCategoryNameRequest RequestModelToGetCategoryNameRequest(GoodRequestModel good)
     {
         return new GetCategoryNameRequest()
         {
             Id = 0,
             Name = good.Name,
-            Dics= good.Dics,
-            Price= good.Price,
-            CategoryId= good.CategoryId
+            Dics = good.Dics,
+            Price = good.Price,
+            CategoryId = good.CategoryId
         };
     }
 
-
-    public GoodResponseModel EntityToResponseModel(Good good)
+    public GetCategoryNameRequest EntityToGetCategoryNameResponse(Good good)
     {
-        return new GoodResponseModel()
+        return new GetCategoryNameRequest()
         {
             Id = good.Id,
             Name = good.Name,
@@ -62,15 +42,11 @@ public class ConvertModelToEntityService
         };
     }
 
-    public List<GoodResponseModel> EntitiesToResponseModels(List<Good> goods)
+    public ListGetCategoryNameRequest EntitiesToListGetCategoryNameRequest(List<Good> goods)
     {
-        return goods.Select(g => new GoodResponseModel()
+        return new ListGetCategoryNameRequest()
         {
-            Id = g.Id,
-            Name = g.Name,
-            Dics = g.Dics,
-            Price = g.Price,
-            CategoryId = g.CategoryId
-        }).ToList();
+            Goods = goods.Select(g => EntityToGetCategoryNameResponse(g)).ToList()
+        };
     }
 }

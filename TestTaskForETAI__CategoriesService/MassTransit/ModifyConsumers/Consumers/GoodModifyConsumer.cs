@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 using SharedModels.Enums;
-using SharedModels.MessageModels.NotifyModels;
+using SharedModels.Models.MessageModels.NotifyModels;
 
 namespace CategoriesService__WebApi.MassTransit.ModifyConsumers.Consumers
 {

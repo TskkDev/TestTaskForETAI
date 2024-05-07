@@ -1,6 +1,6 @@
 ﻿using CategoriesService__BLL.Interfaces;
-using SharedModels.MessageModels.RespondModels.Request;
-using SharedModels.MessageModels.RespondModels.Response;
+using SharedModels.Models.RespondModels.Request;
+using SharedModels.Models.RespondModels.Response;
 
 namespace CategoriesService__BLL.Services
 {

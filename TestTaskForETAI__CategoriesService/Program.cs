@@ -4,8 +4,7 @@ using CategoriesService__WebApi.MassTransit.ModifyConsumers.Consumers;
 using CategoriesService__WebApi.MassTransit.ResponseComsumers.Consumers;
 using MassTransit;
 using SharedModels.Constants;
-using SharedModels.MessageModels.RespondModels.Request;
-using SharedModels.MessageModels.RespondModels.Response;
+using SharedModels.Models.RespondModels.Request;
 
 var builder = WebApplication.CreateBuilder(args);
 

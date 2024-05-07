@@ -1,8 +1,7 @@
 ﻿using SharedModels.Enums;
-using SharedModels.MessageModels.RespondModels.Response;
+using SharedModels.Models.RespondModels.Response;
 
-
-namespace SharedModels.MessageModels.NotifyModels
+namespace SharedModels.Models.MessageModels.NotifyModels
 {
     public class GoodMessage
     {

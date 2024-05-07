@@ -1,5 +1,6 @@
 ﻿
-using CategoriesService__BLL.Models;
+using SharedModels.Models.RequestModels;
+using SharedModels.Models.RespondModels.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,10 @@ namespace CategoriesService__BLL.Interfaces
 {
     public interface ICategoryManager
     {
-        public CategoryResponseModel AddCategory(CategoryRequestModel newCategory);
-        public CategoryResponseModel UpdateCategory(int categoryId, CategoryRequestModel newCategory);
+        public GetCountGoodsRequest AddCategory(CategoryRequestModel newCategory);
+        public GetCountGoodsRequest UpdateCategory(int categoryId, CategoryRequestModel newCategory);
         public string GetCategoryNameById(int categoryId);
-        public CategoryResponseModel? GetCategoryById(int categoryId);
-        public List<CategoryResponseModel> GetAllTopicCategory();
+        public GetCountGoodsRequest? GetCategoryById(int categoryId);
+        public ListGetCountGoodsRequest GetAllTopicCategory();
     }
 }
