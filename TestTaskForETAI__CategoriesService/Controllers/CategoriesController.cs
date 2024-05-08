@@ -70,10 +70,10 @@ public class CategoriesController : Controller
         await _publishEndpoint.Publish<CategoryMessage>( 
             new CategoryMessage() {Category = data.Message, OperationType = CategoryOperationTypes.Update });
         
-        return Ok(data);
+        return Ok(data.Message);
     }
 
-    [HttpGet("/category/{categoryId:int}/getById")]
+    [HttpGet("/category/{categoryId:int}")]
     public async Task<IActionResult> GetCategoryById(int categoryId, CancellationToken cancellationToken)
     {
         GetCountGoodsRequest category;
@@ -90,7 +90,7 @@ public class CategoriesController : Controller
         await _publishEndpoint.Publish<CategoryMessage>(
             new CategoryMessage(){ Category = data.Message, OperationType = CategoryOperationTypes.Get });
         
-        return Ok(data);
+        return Ok(data.Message);
     }
 
     [HttpGet("/category/getAllTopicCategory")]

@@ -17,18 +17,6 @@
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
-      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
-    },
-    {
-      "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
-      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
-    },
-    {
-      "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "PackagePath": "staticwebassets\\css\\open-iconic"
-    },
-    {
       "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
@@ -37,8 +25,8 @@
       "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
     },
     {
-      "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
-      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+      "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\css\\open-iconic\\font\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font"
     },
     {
       "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
@@ -71,6 +59,14 @@
     {
       "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\sample-data\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\sample-data\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\sample-data\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\sample-data\\bootstrap.min.css.map"
     },
     {
       "Id": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\TestTaskForETAI\\wwwroot\\sample-data\\weather.json",

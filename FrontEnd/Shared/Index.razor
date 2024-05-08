@@ -1,0 +1,34 @@
+﻿@inject HttpClient client
+@using Newtonsoft.Json;
+@using SharedModels.Models.RespondModels.Response
+
+<CategoryComponent Items="@items" Client="@client" />
+
+@code{
+    /*public List<GetCountGoodsResponse> category;
+    public List<CategoryComponent.Item> items;
+    protected override async Task OnInitializedAsync()
+    {
+        var request = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://localhost:7273/category/getAllTopicCategory")
+            };
+        using (var response = await client.SendAsync(request))
+        {
+            response.EnsureSuccessStatusCode();
+            var data = await response.Content.ReadAsStringAsync();
+            category = JsonConvert.DeserializeObject<List<GetCountGoodsResponse>>(data);
+            var a = 1;
+        }
+        items = category.Select(i => new CategoryComponent.Item
+            {
+                Name = i.Name,
+                Children = i.SubCategories.Select(ii => new CategoryComponent.Item
+                {
+                    Name = ii.Name,
+                    Children = new List<CategoryComponent.Item>(),
+                }).ToList(),
+            }).ToList();
+    }*/
+}

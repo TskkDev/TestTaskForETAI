@@ -52,7 +52,7 @@ public class GoodsController : Controller
         }
         catch (MassTransitException ex)
         {
-            return BadRequest(ex.Message);
+            return BadRequest("Invalid categoryId");
         }
 
         addGood = _goodManager.AddGood(newGood);
@@ -89,7 +89,7 @@ public class GoodsController : Controller
         }
         catch (MassTransitException ex)
         {
-            return BadRequest(ex.Message);
+            return BadRequest("Invalid categoryId");
         }
 
         data.Message.Id = updatedGood.Id;

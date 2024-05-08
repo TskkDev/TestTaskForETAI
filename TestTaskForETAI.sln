@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTaskForETAI", "TestTaskForETAI\TestTaskForETAI.csproj", "{A002315B-8892-43DF-99FB-20BEBA4C21E1}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{2239E5B8-C3F6-41E2-AE63-F82507373196}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices", "MicroServices", "{3E8B8556-3206-4B56-94C6-698BC85ED377}"
@@ -21,15 +19,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{614A8A7C-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CategoriesService", "CategoriesService", "{2EC4FCCA-D09B-452B-A010-8B2C39F78EB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoriesService__BLL", "CategoriesService__BLL\CategoriesService__BLL.csproj", "{D01A3DA7-788A-4F99-B2D8-9A44A7BF8A00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__BLL", "CategoriesService__BLL\CategoriesService__BLL.csproj", "{D01A3DA7-788A-4F99-B2D8-9A44A7BF8A00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoriesService__DAL", "CategoriesService__DAL\CategoriesService__DAL.csproj", "{5AFCF4F0-9C07-4438-885D-F997239F1488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__DAL", "CategoriesService__DAL\CategoriesService__DAL.csproj", "{5AFCF4F0-9C07-4438-885D-F997239F1488}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoodsService", "GoodsService", "{95AA8FAE-FAB2-468C-867B-4E409F4C268E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsService__DAL", "GoodsService__DAL\GoodsService__DAL.csproj", "{4135A517-391B-4BBD-9877-F771CC27947F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__DAL", "GoodsService__DAL\GoodsService__DAL.csproj", "{4135A517-391B-4BBD-9877-F771CC27947F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsService__BLL", "GoodsService__BLL\GoodsService__BLL.csproj", "{86CAB30F-EDBB-4CC2-97D1-B3345D464190}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__BLL", "GoodsService__BLL\GoodsService__BLL.csproj", "{86CAB30F-EDBB-4CC2-97D1-B3345D464190}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{F1DF216B-7075-489F-B1EC-401505879DDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A002315B-8892-43DF-99FB-20BEBA4C21E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A002315B-8892-43DF-99FB-20BEBA4C21E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A002315B-8892-43DF-99FB-20BEBA4C21E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A002315B-8892-43DF-99FB-20BEBA4C21E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6CA50D7-1622-421C-815C-EEB57DC6FDFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6CA50D7-1622-421C-815C-EEB57DC6FDFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6CA50D7-1622-421C-815C-EEB57DC6FDFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,12 +65,15 @@ Global
 		{86CAB30F-EDBB-4CC2-97D1-B3345D464190}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86CAB30F-EDBB-4CC2-97D1-B3345D464190}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86CAB30F-EDBB-4CC2-97D1-B3345D464190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1DF216B-7075-489F-B1EC-401505879DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1DF216B-7075-489F-B1EC-401505879DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1DF216B-7075-489F-B1EC-401505879DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1DF216B-7075-489F-B1EC-401505879DDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A002315B-8892-43DF-99FB-20BEBA4C21E1} = {2239E5B8-C3F6-41E2-AE63-F82507373196}
 		{C6CA50D7-1622-421C-815C-EEB57DC6FDFA} = {2EC4FCCA-D09B-452B-A010-8B2C39F78EB2}
 		{7711E73F-EBA2-4D59-B2C7-2E1AB8E97C99} = {95AA8FAE-FAB2-468C-867B-4E409F4C268E}
 		{77E13179-1CDE-4466-A81F-F8B00142804F} = {A08C796C-17F8-492B-9973-B218A8AE40BE}
@@ -84,6 +83,7 @@ Global
 		{95AA8FAE-FAB2-468C-867B-4E409F4C268E} = {3E8B8556-3206-4B56-94C6-698BC85ED377}
 		{4135A517-391B-4BBD-9877-F771CC27947F} = {95AA8FAE-FAB2-468C-867B-4E409F4C268E}
 		{86CAB30F-EDBB-4CC2-97D1-B3345D464190} = {95AA8FAE-FAB2-468C-867B-4E409F4C268E}
+		{F1DF216B-7075-489F-B1EC-401505879DDA} = {2239E5B8-C3F6-41E2-AE63-F82507373196}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41248CB3-BE83-4D69-850B-4B0AE9C0F702}

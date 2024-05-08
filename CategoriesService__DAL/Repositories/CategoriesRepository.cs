@@ -41,7 +41,6 @@ public class CategoriesRepository : ICategoriesRepository
 
     public IEnumerable<Category> GetAllTopicCategories()
     {
-        return _db.Categories.LoadWith(c => c.SubCategories)
-            .Where(c => c.ParentCategoryId == null);
+        return _db.Categories.Where(c => c.ParentCategoryId == null);
     }
 }

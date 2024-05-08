@@ -23,7 +23,7 @@ public class GetCategoryNameConsumer : IConsumer<GetCategoryNameRequest>
         }
         catch(NullReferenceException ex)
         {
-            throw new MassTransitException("Invalid categoryId");
+            throw new MassTransitException();
         }
         
 
