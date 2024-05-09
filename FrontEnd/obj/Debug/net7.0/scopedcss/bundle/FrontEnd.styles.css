@@ -1,0 +1,26 @@
+/* /Shared/Popup.razor.rz.scp.css */
+.popup[b-0siia192it] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.popup.open[b-0siia192it] {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content[b-0siia192it] {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}

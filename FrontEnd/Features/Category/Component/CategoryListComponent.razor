@@ -1,0 +1,38 @@
+﻿@using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
+@using SharedModels.Models.RespondModels.Response;
+@inject IDispatcher Dispatcher
+@inject IState<CategoryState> CategoryState
+
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+
+@if (categories != null && categories.Any())
+{
+    <ul>
+        @foreach (var category in categories)
+        {
+                <li @onclick="() => ToggleCategory(category)">
+                    <p>@category.Name</p>
+                    @if (category.SubCategories != null && category.SubCategories.Any() && category.IsVisible)
+                    {
+                        <CategoryListComponent categories="category.SubCategories" />
+                    }
+                </li>
+        }
+    </ul>
+}
+
+@code {
+    [Parameter]
+    public IEnumerable<GetCountGoodsResponse> categories { get; set; }
+
+
+    private void ToggleCategory(GetCountGoodsResponse category)
+    {
+        if (!category.IsVisible)
+        {
+            Dispatcher.Dispatch(new TongleCategoryAction(CategoryState.Value.Categories, category.Id));
+            StateHasChanged();
+        }
+    }
+}

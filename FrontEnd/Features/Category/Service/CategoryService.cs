@@ -134,5 +134,27 @@ namespace FrontEnd.Features.Category.Service
                 return await Task.FromResult(data);
             }
         }
+
+        public List<GetCountGoodsResponse> ChangeCategoryInListCategories
+            (
+            IEnumerable<GetCountGoodsResponse> categoryList, int oldCategoryId,
+            GetCountGoodsResponse newCategory)
+        {
+            var newCategoryList = categoryList.Select(c =>
+            {
+                if(c.Id == oldCategoryId)
+                {
+                    return newCategory;
+                }
+                else if (c.SubCategories != null && c.SubCategories.Any())
+                {
+                    var updatedSubCategories = ChangeCategoryInListCategories(c.SubCategories, oldCategoryId, newCategory);
+                    c.SubCategories = updatedSubCategories;
+                }
+                return c;
+            }).ToList();
+
+            return newCategoryList;
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿@page "/"
-@using FrontEnd.Features.Category.Actions;
+@using FrontEnd.Features.Category.StateManagment.Actions.TopCategoryActions;
+@using FrontEnd.Features.Category.StateManagment.States;
+@using FrontEnd.Features.Category.Component;
 @inject IState<CategoryState> CategoryState
 @inject IDispatcher Dispatcher
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
@@ -9,29 +11,19 @@
 @if (CategoryState.Value.IsLoading)
 {
     <p>
-        <em >123...</em>
+        <em >Загрузка...</em>
     </p>
 }
 else
 {
-    <table class="table">
-        <tbody>
-            @foreach (var category in CategoryState.Value.Categories)
-            {
-                @* code removed for brevity *@
-                <tr>
-                    <td>@category.ParentCategoryId</td>
-                    <td>@category.Name</td>
-                    <td>@category.CountGoods</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <CategoryListComponent categories="CategoryState.Value.Categories" />
+
+
 }
 @code{
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        Dispatcher.Dispatch(new CategoryAction());
+        Dispatcher.Dispatch(new TopCategoriesAction());
     }
 }
