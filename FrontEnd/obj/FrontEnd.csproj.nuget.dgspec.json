@@ -49,6 +49,18 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Fluxor": {
+              "target": "Package",
+              "version": "[5.9.1, )"
+            },
+            "Fluxor.Blazor.Web": {
+              "target": "Package",
+              "version": "[5.9.1, )"
+            },
+            "Fluxor.Blazor.Web.ReduxDevTools": {
+              "target": "Package",
+              "version": "[5.9.1, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[7.0.11, )"

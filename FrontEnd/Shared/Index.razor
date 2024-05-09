@@ -1,34 +1,37 @@
-﻿@inject HttpClient client
-@using Newtonsoft.Json;
-@using SharedModels.Models.RespondModels.Response
+﻿@page "/"
+@using FrontEnd.Features.Category.Actions;
+@inject IState<CategoryState> CategoryState
+@inject IDispatcher Dispatcher
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<CategoryComponent Items="@items" Client="@client" />
+<PageTitle>Categories</PageTitle>
 
+@if (CategoryState.Value.IsLoading)
+{
+    <p>
+        <em >123...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <tbody>
+            @foreach (var category in CategoryState.Value.Categories)
+            {
+                @* code removed for brevity *@
+                <tr>
+                    <td>@category.ParentCategoryId</td>
+                    <td>@category.Name</td>
+                    <td>@category.CountGoods</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 @code{
-    /*public List<GetCountGoodsResponse> category;
-    public List<CategoryComponent.Item> items;
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        var request = new HttpRequestMessage()
-            {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri("https://localhost:7273/category/getAllTopicCategory")
-            };
-        using (var response = await client.SendAsync(request))
-        {
-            response.EnsureSuccessStatusCode();
-            var data = await response.Content.ReadAsStringAsync();
-            category = JsonConvert.DeserializeObject<List<GetCountGoodsResponse>>(data);
-            var a = 1;
-        }
-        items = category.Select(i => new CategoryComponent.Item
-            {
-                Name = i.Name,
-                Children = i.SubCategories.Select(ii => new CategoryComponent.Item
-                {
-                    Name = ii.Name,
-                    Children = new List<CategoryComponent.Item>(),
-                }).ToList(),
-            }).ToList();
-    }*/
+        base.OnInitialized();
+        Dispatcher.Dispatch(new CategoryAction());
+    }
 }

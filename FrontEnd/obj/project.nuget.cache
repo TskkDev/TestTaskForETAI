@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "pUbFU54ugBDyJBzBxyLfuIDW/9I6ifyQd+mlv9XwpoAZR11wTy7miUdqJdHN1imNGeH5U7Sfl2ck+kGXzo9zOA==",
+  "dgSpecHash": "RBrSeuxhhA2qEwWqCzXy0epuwnJl9ajG6CzClzKAVqH9dQz2ioB5CdHEWihnE3i18zMcWKiGsmvLMbJo0gLieQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\FrontEnd.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\home\\.nuget\\packages\\fluxor\\5.9.1\\fluxor.5.9.1.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\fluxor.blazor.web\\5.9.1\\fluxor.blazor.web.5.9.1.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\fluxor.blazor.web.reduxdevtools\\5.9.1\\fluxor.blazor.web.reduxdevtools.5.9.1.nupkg.sha512",
     "C:\\Users\\home\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.11\\microsoft.aspnetcore.authorization.7.0.11.nupkg.sha512",
     "C:\\Users\\home\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.11\\microsoft.aspnetcore.components.7.0.11.nupkg.sha512",
     "C:\\Users\\home\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.11\\microsoft.aspnetcore.components.analyzers.7.0.11.nupkg.sha512",

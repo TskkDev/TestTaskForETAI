@@ -8,4 +8,5 @@ public class GetCountGoodsResponse
     public int? ParentCategoryId { get; set; }
     public int CountGoods { get; set; } = 0;
     public List<GetCountGoodsResponse> SubCategories { get; set; } = new List<GetCountGoodsResponse>();
+    public bool IsVisible { get; set; } = false;
 }

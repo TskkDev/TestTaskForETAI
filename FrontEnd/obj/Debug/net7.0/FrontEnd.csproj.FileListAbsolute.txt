@@ -835,3 +835,15 @@ C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\FrontEnd.d
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\refint\FrontEnd.dll
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\FrontEnd.pdb
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\ref\FrontEnd.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\wwwroot\_framework\Fluxor.Blazor.Web.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\wwwroot\_framework\Fluxor.Blazor.Web.ReduxDevTools.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\wwwroot\_framework\Fluxor.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\wwwroot\_framework\Fluxor.dll.gz
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\wwwroot\_framework\Fluxor.Blazor.Web.dll.gz
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\wwwroot\_framework\Fluxor.Blazor.Web.ReduxDevTools.dll.gz
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\Fluxor.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\Fluxor.Blazor.Web.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\Fluxor.Blazor.Web.ReduxDevTools.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\build-gz\+ZaMybd2.gz
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\build-gz\Um1YzhMi.gz
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\build-gz\VZYotsVF.gz

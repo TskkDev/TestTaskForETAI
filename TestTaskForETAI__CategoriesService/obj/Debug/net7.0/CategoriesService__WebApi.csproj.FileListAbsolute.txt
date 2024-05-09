@@ -53,3 +53,5 @@ C:\Users\home\Desktop\repos\TestTaskForETAI\TestTaskForETAI__CategoriesService\o
 C:\Users\home\Desktop\repos\TestTaskForETAI\TestTaskForETAI__CategoriesService\obj\Debug\net7.0\CategoriesService__WebApi.pdb
 C:\Users\home\Desktop\repos\TestTaskForETAI\TestTaskForETAI__CategoriesService\obj\Debug\net7.0\CategoriesService__WebApi.genruntimeconfig.cache
 C:\Users\home\Desktop\repos\TestTaskForETAI\TestTaskForETAI__CategoriesService\obj\Debug\net7.0\ref\CategoriesService__WebApi.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\TestTaskForETAI__CategoriesService\obj\Debug\net7.0\CategoriesService__WebApi.Properties.Resources.resources
+C:\Users\home\Desktop\repos\TestTaskForETAI\TestTaskForETAI__CategoriesService\obj\Debug\net7.0\CategoriesService__WebApi.csproj.GenerateResource.cache

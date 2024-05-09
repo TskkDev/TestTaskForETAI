@@ -2,6 +2,44 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "Fluxor/5.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Fluxor.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Fluxor.dll": {}
+        }
+      },
+      "Fluxor.Blazor.Web/5.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Fluxor": "5.9.1",
+          "Microsoft.AspNetCore.Components.Web": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Fluxor.Blazor.Web.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Fluxor.Blazor.Web.dll": {}
+        }
+      },
+      "Fluxor.Blazor.Web.ReduxDevTools/5.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Fluxor.Blazor.Web": "5.9.1",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/net7.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/7.0.11": {
         "type": "package",
         "dependencies": {
@@ -501,6 +539,44 @@
       }
     },
     "net7.0/browser-wasm": {
+      "Fluxor/5.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Fluxor.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Fluxor.dll": {}
+        }
+      },
+      "Fluxor.Blazor.Web/5.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Fluxor": "5.9.1",
+          "Microsoft.AspNetCore.Components.Web": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Fluxor.Blazor.Web.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Fluxor.Blazor.Web.dll": {}
+        }
+      },
+      "Fluxor.Blazor.Web.ReduxDevTools/5.9.1": {
+        "type": "package",
+        "dependencies": {
+          "Fluxor.Blazor.Web": "5.9.1",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/net7.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Fluxor.Blazor.Web.ReduxDevTools.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/7.0.11": {
         "type": "package",
         "dependencies": {
@@ -995,6 +1071,66 @@
     }
   },
   "libraries": {
+    "Fluxor/5.9.1": {
+      "sha512": "p6yibOh8e0t5ixPhaUAymHyYafxqs9v+FwGzOnKqF9CZgpEAxWZn28hyzb6hJ4pmkv/CzGTSauj2TCJYhWUXNg==",
+      "type": "package",
+      "path": "fluxor/5.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluxor-small-logo.png",
+        "fluxor.5.9.1.nupkg.sha512",
+        "fluxor.nuspec",
+        "lib/net472/Fluxor.dll",
+        "lib/net481/Fluxor.dll",
+        "lib/net5.0/Fluxor.dll",
+        "lib/net6.0/Fluxor.dll",
+        "lib/net7.0/Fluxor.dll",
+        "lib/netcoreapp3.1/Fluxor.dll",
+        "lib/netstandard2.0/Fluxor.dll",
+        "lib/netstandard2.1/Fluxor.dll"
+      ]
+    },
+    "Fluxor.Blazor.Web/5.9.1": {
+      "sha512": "oVzxLh2lXrhtLfkjobTf3idk58D7rdCq2st+7jGIL2myO8aOx5PZ1fqs1MifLDPfJVBhyCR1f23nuE4M0bDR7A==",
+      "type": "package",
+      "path": "fluxor.blazor.web/5.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluxor-blazor-logo-small.png",
+        "fluxor.blazor.web.5.9.1.nupkg.sha512",
+        "fluxor.blazor.web.nuspec",
+        "lib/net472/Fluxor.Blazor.Web.dll",
+        "lib/net481/Fluxor.Blazor.Web.dll",
+        "lib/net5.0/Fluxor.Blazor.Web.dll",
+        "lib/net6.0/Fluxor.Blazor.Web.dll",
+        "lib/net7.0/Fluxor.Blazor.Web.dll",
+        "lib/netcoreapp3.1/Fluxor.Blazor.Web.dll",
+        "lib/netstandard2.0/Fluxor.Blazor.Web.dll",
+        "lib/netstandard2.1/Fluxor.Blazor.Web.dll"
+      ]
+    },
+    "Fluxor.Blazor.Web.ReduxDevTools/5.9.1": {
+      "sha512": "kqtRAcgM7Ejm7FDSNILhrIWxckcnRNv5QjPDUmBwCtvwb0xdLmM/sn+bbk45zn2Y88+YkXfvYtI2G6dlbUy6QA==",
+      "type": "package",
+      "path": "fluxor.blazor.web.reduxdevtools/5.9.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluxor-blazor-reduxdevtools-small.png",
+        "fluxor.blazor.web.reduxdevtools.5.9.1.nupkg.sha512",
+        "fluxor.blazor.web.reduxdevtools.nuspec",
+        "lib/net472/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/net481/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/net5.0/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/net6.0/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/net7.0/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/netcoreapp3.1/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/netstandard2.0/Fluxor.Blazor.Web.ReduxDevTools.dll",
+        "lib/netstandard2.1/Fluxor.Blazor.Web.ReduxDevTools.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Authorization/7.0.11": {
       "sha512": "3zCVWaDXNO7o8mjzOoIwfB8yYqV3+t4rLp+/dB4Db4BbUKS1MK2mnXBiDST6s1QaVMEuEz+pXv58JXeh3Pv7mw==",
       "type": "package",
@@ -1877,6 +2013,9 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Fluxor >= 5.9.1",
+      "Fluxor.Blazor.Web >= 5.9.1",
+      "Fluxor.Blazor.Web.ReduxDevTools >= 5.9.1",
       "Microsoft.AspNetCore.Components.WebAssembly >= 7.0.11",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 7.0.11",
       "Newtonsoft.Json >= 13.0.3",
@@ -1932,6 +2071,18 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Fluxor": {
+            "target": "Package",
+            "version": "[5.9.1, )"
+          },
+          "Fluxor.Blazor.Web": {
+            "target": "Package",
+            "version": "[5.9.1, )"
+          },
+          "Fluxor.Blazor.Web.ReduxDevTools": {
+            "target": "Package",
+            "version": "[5.9.1, )"
+          },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",
             "version": "[7.0.11, )"
