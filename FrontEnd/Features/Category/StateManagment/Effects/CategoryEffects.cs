@@ -1,4 +1,5 @@
 ﻿using Fluxor;
+using FrontEnd.Features.Category.Interfaces;
 using FrontEnd.Features.Category.Service;
 using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TopCategoryActions;
@@ -8,10 +9,10 @@ namespace FrontEnd.Features.Category.StateManagment.Effects
 {
     public class Effects
     {
-        private readonly CategoryService _categoryService;
-        public Effects(HttpClient http)
+        private readonly ICategoryService _categoryService;
+        public Effects(ICategoryService categoryService)
         {
-            _categoryService = new CategoryService(http);
+            _categoryService = categoryService;
         }
         [EffectMethod]
         public async Task HandleTopCategoryAction(TopCategoriesAction action, IDispatcher dispatcher)

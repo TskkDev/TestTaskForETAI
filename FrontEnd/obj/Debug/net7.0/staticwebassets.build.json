@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CVM3uJjZxujdXlcnjeC7d6RH8wQloj9IYvi4QUyFEv8=",
+  "Hash": "kQMloKY2Ce7/Civ90oOyUgilucgtN99zOl/ddK1vC6k=",
   "Source": "FrontEnd",
   "BasePath": "/",
   "Mode": "Root",
@@ -7070,6 +7070,40 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\bin\\Debug\\net7.0\\wwwroot\\_framework\\mscorlib.dll"
+    },
+    {
+      "Identity": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\wwwroot\\appsettings.Development.json",
+      "SourceId": "FrontEnd",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "appsettings.Development.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "settings",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\appsettings.Development.json"
+    },
+    {
+      "Identity": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\wwwroot\\appsettings.json",
+      "SourceId": "FrontEnd",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "appsettings.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "settings",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\appsettings.json"
     },
     {
       "Identity": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\wwwroot\\css\\app.css",

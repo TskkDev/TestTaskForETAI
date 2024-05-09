@@ -133,3 +133,4 @@ C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEndTests\obj\Debug\net7.0\refin
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEndTests\obj\Debug\net7.0\FrontEndTests.pdb
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEndTests\obj\Debug\net7.0\FrontEndTests.genruntimeconfig.cache
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEndTests\obj\Debug\net7.0\ref\FrontEndTests.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEndTests\bin\Debug\net7.0\appsettings.json

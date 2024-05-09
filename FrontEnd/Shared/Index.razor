@@ -8,22 +8,4 @@
 
 <PageTitle>Categories</PageTitle>
 
-@if (CategoryState.Value.IsLoading)
-{
-    <p>
-        <em >Загрузка...</em>
-    </p>
-}
-else
-{
-    <CategoryListComponent categories="CategoryState.Value.Categories" />
-
-
-}
-@code{
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        Dispatcher.Dispatch(new TopCategoriesAction());
-    }
-}
+<CategoryListComponent categories="CategoryState.Value.Categories" />

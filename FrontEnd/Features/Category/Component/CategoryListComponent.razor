@@ -11,28 +11,20 @@
     <ul>
         @foreach (var category in categories)
         {
-                <li @onclick="() => ToggleCategory(category)">
+                <li>
                     <p>@category.Name</p>
-                    @if (category.SubCategories != null && category.SubCategories.Any() && category.IsVisible)
+
+                    <button @onclick="() => ToggleCategory(category)">▼</button>
+                    @if (category.IsVisible)
                     {
-                        <CategoryListComponent categories="category.SubCategories" />
+                    <CategoryListComponent categories="category.SubCategories" />
+                    }
+                    else
+                    {
+                    var a = 1;
+                    <CategoryListComponent categories="null" />
                     }
                 </li>
         }
     </ul>
-}
-
-@code {
-    [Parameter]
-    public IEnumerable<GetCountGoodsResponse> categories { get; set; }
-
-
-    private void ToggleCategory(GetCountGoodsResponse category)
-    {
-        if (!category.IsVisible)
-        {
-            Dispatcher.Dispatch(new TongleCategoryAction(CategoryState.Value.Categories, category.Id));
-            StateHasChanged();
-        }
-    }
 }

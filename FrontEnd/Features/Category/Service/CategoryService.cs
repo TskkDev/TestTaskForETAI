@@ -1,4 +1,5 @@
-﻿using FrontEnd.Features.Category.Models;
+﻿using FrontEnd.Features.Category.Interfaces;
+using FrontEnd.Features.Category.Models;
 using Newtonsoft.Json;
 using SharedModels.Models.RequestModels;
 using SharedModels.Models.RespondModels.Response;
@@ -6,15 +7,19 @@ using System.Net.Http;
 
 namespace FrontEnd.Features.Category.Service
 {
-    public class CategoryService
+    public class CategoryService : ICategoryService
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiString;
-        public CategoryService(HttpClient httpClient)
+        private readonly CategoryResponseHelper _responseHelper;
+        public CategoryService(HttpClient httpClient, string apiString)
         {
             _httpClient = httpClient;
-            _apiString = "https://localhost:7273/category/";
+            _apiString = apiString;
+            _responseHelper = new CategoryResponseHelper(httpClient);
         }
+
+
 
         public async Task<List<GetCountGoodsResponse>> GetAllTopicCategory()
         {
@@ -28,21 +33,8 @@ namespace FrontEnd.Features.Category.Service
                 RequestUri = connectionString,
             };
 
-
-            using (var response = await _httpClient.SendAsync(request))
-            {
-                if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-                {
-                    throw new NullReferenceException();
-                }
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<List<GetCountGoodsResponse>>(json);
-                }
-
-                return await Task.FromResult(data);
-            }
+            data = await _responseHelper.SendAndAcceptListResponse(request);
+            return await Task.FromResult(data);
         }
 
         public async Task<GetCountGoodsResponse> GetCategoryById(int id)
@@ -58,20 +50,8 @@ namespace FrontEnd.Features.Category.Service
             };
 
 
-            using (var response = await _httpClient.SendAsync(request))
-            {
-                if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-                {
-                    throw new NullReferenceException("Doesn't have this category");
-                }
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<GetCountGoodsResponse>(json);
-                }
-
-                return await Task.FromResult(data);
-            }
+            data = await _responseHelper.SendAndAcceptResponse(request);
+            return await Task.FromResult(data);
         }
 
         public async Task<GetCountGoodsResponse> UpdateCategory(CategoryUpdateModel categoryUpdate)
@@ -87,23 +67,8 @@ namespace FrontEnd.Features.Category.Service
                 Content = new StringContent(JsonConvert.SerializeObject(categoryUpdate.NewCategory))
             };
 
-            using (var response = await _httpClient.SendAsync(request))
-            {
-                if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
-                {
-                    throw new NullReferenceException(response.Content.ToString());
-                }
-                if(response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    throw new InvalidDataException(response.Content.ToString());
-                }
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<GetCountGoodsResponse>(json);
-                }
-                return await Task.FromResult(data);
-            }
+            data = await _responseHelper.SendAndAcceptResponse(request);
+            return await Task.FromResult(data);
         }
 
         public async Task<GetCountGoodsResponse> AddCategory(CategoryRequestModel categoryRequest)
@@ -119,20 +84,8 @@ namespace FrontEnd.Features.Category.Service
                 Content = new StringContent(JsonConvert.SerializeObject(categoryRequest))
             };
 
-            using (var response = await _httpClient.SendAsync(request))
-            {
-                if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
-                {
-                    throw new NullReferenceException(response.Content.ToString());
-                }
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = await response.Content.ReadAsStringAsync();
-                    data = JsonConvert.DeserializeObject<GetCountGoodsResponse>(json);
-                }
-
-                return await Task.FromResult(data);
-            }
+            data = await _responseHelper.SendAndAcceptResponse(request);
+            return await Task.FromResult(data);
         }
 
         public List<GetCountGoodsResponse> ChangeCategoryInListCategories
@@ -144,6 +97,10 @@ namespace FrontEnd.Features.Category.Service
             {
                 if(c.Id == oldCategoryId)
                 {
+                    if (c.IsVisible)
+                    {
+                        newCategory.IsVisible = false;
+                    }
                     return newCategory;
                 }
                 else if (c.SubCategories != null && c.SubCategories.Any())
