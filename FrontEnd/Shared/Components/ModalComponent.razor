@@ -1,0 +1,8 @@
+﻿<div class="modal" style="display: @(IsOpen ? "flex" : "none")">
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <button class="close" @onclick="Close">×</button>
+            @ChildContent
+        </div>
+    </div>
+</div>

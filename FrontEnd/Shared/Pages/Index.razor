@@ -1,0 +1,27 @@
+﻿@page "/"
+@using FrontEnd.Features.Category.StateManagment.Actions.TopCategoryActions;
+@using FrontEnd.Features.Category.StateManagment.States;
+@using FrontEnd.Features.Category.Component;
+@using FrontEnd.Shared.Components
+@inject IState<CategoryState> CategoryState
+@inject IDispatcher Dispatcher
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<PageTitle>Shop</PageTitle>
+
+<ModalComponent @ref="modal">
+    <CategoryModalComponent UpdateId="null" ToggleModal="CloseModal"></CategoryModalComponent>
+</ModalComponent>
+
+<div class="content">
+    <div class="categories__block">
+
+        <button class="categories__add" @onclick="OpenModal">Открыть модальное окно</button>
+        <CategoryListComponent Categories="CategoryState.Value.Categories" />
+
+    </div>
+
+</div>
+
+
+

@@ -1,4 +1,5 @@
 ﻿using Fluxor;
+using FrontEnd.Features.Category.StateManagment.Actions.AddCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TopCategoryActions;
 using FrontEnd.Features.Category.StateManagment.States;
@@ -18,15 +19,28 @@ namespace FrontEnd.Features.Category.StateManagment.Reducers
         {
             return new CategoryState(isLoading: false, categories: action.Categories);
         }
+
         [ReducerMethod]
         public static CategoryState ReduceTongleCategoryAction(CategoryState state, TongleCategoryAction action)
         {
             return new CategoryState(isLoading: true, categories: action.Categories);
         }
         [ReducerMethod]
-        public static CategoryState ReduceTTongleCategoryResultAction(CategoryState state, TongleCategoryResultAction action)
+        public static CategoryState ReduceTongleCategoryResultAction(CategoryState state, TongleCategoryResultAction action)
         {
             return new CategoryState(isLoading: false, categories: action.Categories);
         }
+
+        [ReducerMethod]
+        public static CategoryState ReduceAddCategoryActionn(CategoryState state, AddCategoryAction action)
+        {
+            return new CategoryState(isLoading: true, categories: state.Categories);
+        }
+        [ReducerMethod]
+        public static CategoryState ReduceAddCategoryResultAction(CategoryState state, AddCategoryResultAction action)
+        {
+            return new CategoryState(isLoading: false, categories: action.Categories);
+        }
+
     }
 }

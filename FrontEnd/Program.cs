@@ -6,6 +6,8 @@ using FrontEnd.Features.Category.Service;
 using FrontEnd.Features.Category.Interfaces;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
+
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 

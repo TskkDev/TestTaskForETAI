@@ -10,8 +10,5 @@ namespace FrontEnd.Features.Category.Interfaces
         public Task<GetCountGoodsResponse> GetCategoryById(int id);
         public Task<GetCountGoodsResponse> UpdateCategory(CategoryUpdateModel categoryUpdate);
         public Task<GetCountGoodsResponse> AddCategory(CategoryRequestModel categoryRequest);
-        public List<GetCountGoodsResponse> ChangeCategoryInListCategories(
-            IEnumerable<GetCountGoodsResponse> categoryList, int oldCategoryId,
-            GetCountGoodsResponse newCategory);
     }
 }

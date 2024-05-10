@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 using SharedModels.Models.RequestModels;
 using SharedModels.Models.RespondModels.Response;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using static System.Net.WebRequestMethods;
 
 namespace FrontEnd.Features.Category.Service
 {
@@ -73,45 +76,21 @@ namespace FrontEnd.Features.Category.Service
 
         public async Task<GetCountGoodsResponse> AddCategory(CategoryRequestModel categoryRequest)
         {
-            Uri connectionString = new Uri(_apiString+"/add");
+            Uri connectionString = new Uri(_apiString+"add");
             GetCountGoodsResponse data = new GetCountGoodsResponse();
+            var a = JsonConvert.SerializeObject(categoryRequest);
 
 
+            var content = new StringContent(JsonConvert.SerializeObject(categoryRequest), Encoding.UTF8, "application/json");
             var request = new HttpRequestMessage()
             {
-                Method = HttpMethod.Patch,
                 RequestUri = connectionString,
-                Content = new StringContent(JsonConvert.SerializeObject(categoryRequest))
+                Method = HttpMethod.Post,
+                Content = content
             };
 
             data = await _responseHelper.SendAndAcceptResponse(request);
             return await Task.FromResult(data);
-        }
-
-        public List<GetCountGoodsResponse> ChangeCategoryInListCategories
-            (
-            IEnumerable<GetCountGoodsResponse> categoryList, int oldCategoryId,
-            GetCountGoodsResponse newCategory)
-        {
-            var newCategoryList = categoryList.Select(c =>
-            {
-                if(c.Id == oldCategoryId)
-                {
-                    if (c.IsVisible)
-                    {
-                        newCategory.IsVisible = false;
-                    }
-                    return newCategory;
-                }
-                else if (c.SubCategories != null && c.SubCategories.Any())
-                {
-                    var updatedSubCategories = ChangeCategoryInListCategories(c.SubCategories, oldCategoryId, newCategory);
-                    c.SubCategories = updatedSubCategories;
-                }
-                return c;
-            }).ToList();
-
-            return newCategoryList;
         }
     }
 }

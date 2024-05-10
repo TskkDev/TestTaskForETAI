@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kQMloKY2Ce7/Civ90oOyUgilucgtN99zOl/ddK1vC6k=",
+  "Hash": "VJuiYWwAK/6+hw6uthqYFdoWufv+QNlymO6lmo/iCCo=",
   "Source": "FrontEnd",
   "BasePath": "/",
   "Mode": "Root",
@@ -7070,6 +7070,40 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\bin\\Debug\\net7.0\\wwwroot\\_framework\\mscorlib.dll"
+    },
+    {
+      "Identity": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\obj\\Debug\\net7.0\\scopedcss\\bundle\\FrontEnd.styles.css",
+      "SourceId": "FrontEnd",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "BasePath": "/",
+      "RelativePath": "FrontEnd.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\obj\\Debug\\net7.0\\scopedcss\\bundle\\FrontEnd.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\FrontEnd.bundle.scp.css",
+      "SourceId": "FrontEnd",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "BasePath": "/",
+      "RelativePath": "FrontEnd.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\FrontEnd.bundle.scp.css"
     },
     {
       "Identity": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEnd\\wwwroot\\appsettings.Development.json",

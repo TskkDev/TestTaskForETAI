@@ -847,3 +847,8 @@ C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\bin\Debug\net7.0\Fluxor.Bla
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\build-gz\+ZaMybd2.gz
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\build-gz\Um1YzhMi.gz
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\build-gz\VZYotsVF.gz
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\projectbundle\FrontEnd.bundle.scp.css
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Shared\Components\ModalComponent.razor.rz.scp.css
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Shared\Pages\Index.razor.rz.scp.css
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Category\Component\CategoryListComponent.razor.rz.scp.css
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Category\Component\CategoryModalComponent.razor.rz.scp.css

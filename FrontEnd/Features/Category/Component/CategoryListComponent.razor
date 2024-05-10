@@ -1,29 +1,43 @@
 ﻿@using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
 @using SharedModels.Models.RespondModels.Response;
+@using FrontEnd.Shared.Components
 @inject IDispatcher Dispatcher
 @inject IState<CategoryState> CategoryState
 
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
+<ModalComponent @ref="modal">
+    <CategoryModalComponent></CategoryModalComponent>
+</ModalComponent>
 
-@if (categories != null && categories.Any())
+@if (Categories != null && Categories.Any())
 {
-    <ul>
-        @foreach (var category in categories)
+    <ul class="category__ul">
+        @foreach (var category in Categories)
         {
-                <li>
-                    <p>@category.Name</p>
+            <li class="category__li">
+                <div class="category__li__content">
+                    <div class="category__li__info">
+                        <p class="category__li__name">
+                            Name:
+                            <span class="category__li__name__value">@category.Name </span>
+                            <button class="category__editBtn" @onclick="() =>OpenModal()">🖊️</button>
+                        </p>
+                        <p class="category__li__subInfo">
+                            Id:
+                            <span class="category__li__subInfo__value">@category.Id </span>
+                            CountOfGoods:
+                            <span class="category__li__subInfo__value">@category.CountGoods </span>
+                        </p>
+                    </div>
 
-                    <button @onclick="() => ToggleCategory(category)">▼</button>
+                    <button class="category__toggleBtn" @onclick="() => ToggleCategory(category)">▼</button>
+                    </div>
                     @if (category.IsVisible)
                     {
-                    <CategoryListComponent categories="category.SubCategories" />
+                    <CategoryListComponent Categories="category.SubCategories" />
                     }
-                    else
-                    {
-                    var a = 1;
-                    <CategoryListComponent categories="null" />
-                    }
+
                 </li>
         }
     </ul>

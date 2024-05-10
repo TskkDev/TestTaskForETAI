@@ -1,0 +1,26 @@
+﻿form{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    padding: 20px
+}
+.categoryName, .parentCategoryId {
+    border-radius: 10px;
+    border-color: green
+}
+.categoryName, .categoryName::placeholder, .parentCategoryId, .parentCategoryId::placeholder {
+    font-size: 16px;
+    padding: 2px 7px 2px 7px;
+}
+.categoryName::placeholder, .parentCategoryId::placeholder{
+    color:dimgrey
+}
+.add_bnt {
+    border-radius: 10px;
+    border: none;
+    background-color: forestgreen;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px 0 5px 0
+}

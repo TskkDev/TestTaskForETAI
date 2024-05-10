@@ -28,7 +28,7 @@ namespace FrontEnd.Features.Category.Service
             }
         }
 
-        public async Task<GetCountGoodsResponse> SendAndAcceptResponse(HttpRequestMessage request)
+        public async Task<GetCountGoodsResponse>SendAndAcceptResponse(HttpRequestMessage request)
         {
             using (var response = await _httpClient.SendAsync(request))
             {
