@@ -5,6 +5,7 @@ using SharedModels.Models.RequestModels;
 using SharedModels.Models.RespondModels.Response;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using static System.Net.WebRequestMethods;
 
@@ -78,15 +79,14 @@ namespace FrontEnd.Features.Category.Service
         {
             Uri connectionString = new Uri(_apiString+"add");
             GetCountGoodsResponse data = new GetCountGoodsResponse();
-            var a = JsonConvert.SerializeObject(categoryRequest);
 
 
             var content = new StringContent(JsonConvert.SerializeObject(categoryRequest), Encoding.UTF8, "application/json");
             var request = new HttpRequestMessage()
             {
                 RequestUri = connectionString,
-                Method = HttpMethod.Post,
-                Content = content
+                Method = new HttpMethod("POST"),
+                Content = JsonContent.Create(categoryRequest)
             };
 
             data = await _responseHelper.SendAndAcceptResponse(request);

@@ -34,7 +34,7 @@ namespace FrontEnd.Features.Category.StateManagment.Reducers
         [ReducerMethod]
         public static CategoryState ReduceAddCategoryActionn(CategoryState state, AddCategoryAction action)
         {
-            return new CategoryState(isLoading: true, categories: state.Categories);
+            return new CategoryState(isLoading: true, categories: action.Categories);
         }
         [ReducerMethod]
         public static CategoryState ReduceAddCategoryResultAction(CategoryState state, AddCategoryResultAction action)

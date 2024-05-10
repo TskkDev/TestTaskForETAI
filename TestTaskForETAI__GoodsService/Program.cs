@@ -43,7 +43,9 @@ builder.Services.AddScoped<IGoodManager>(prov => new GoodManager(builder.Configu
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.AllowAnyOrigin());
+        builder => builder.AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowAnyOrigin());
 });
 
 builder.Services.AddControllers();

@@ -42,7 +42,9 @@ builder.Services.AddScoped<ICategoryManager>(prov => new CategoryManager(builder
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.AllowAnyOrigin());
+        builder => builder.AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowAnyOrigin());
 });
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
