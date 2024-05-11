@@ -12,7 +12,9 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-builder.Services.AddScoped<ICategoryService>(sp => new CategoryService(new HttpClient(), builder.Configuration.GetValue<string>("Host")));
+
+builder.Services.AddTransient<ICategoryService>(sp => new CategoryService(new HttpClient(), builder.Configuration.GetValue<string>("Host")));
+
 builder.Services.AddFluxor(o =>
 {
     o.ScanAssemblies(typeof(Program).Assembly);

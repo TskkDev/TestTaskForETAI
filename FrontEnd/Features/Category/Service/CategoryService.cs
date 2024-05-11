@@ -1,5 +1,6 @@
 ﻿using FrontEnd.Features.Category.Interfaces;
 using FrontEnd.Features.Category.Models;
+using Microsoft.AspNetCore.Components.WebAssembly.Http;
 using Newtonsoft.Json;
 using SharedModels.Models.RequestModels;
 using SharedModels.Models.RespondModels.Response;
@@ -38,7 +39,7 @@ namespace FrontEnd.Features.Category.Service
             };
 
             data = await _responseHelper.SendAndAcceptListResponse(request);
-            return await Task.FromResult(data);
+            return data;
         }
 
         public async Task<GetCountGoodsResponse> GetCategoryById(int id)
@@ -55,7 +56,7 @@ namespace FrontEnd.Features.Category.Service
 
 
             data = await _responseHelper.SendAndAcceptResponse(request);
-            return await Task.FromResult(data);
+            return data;
         }
 
         public async Task<GetCountGoodsResponse> UpdateCategory(CategoryUpdateModel categoryUpdate)
@@ -72,25 +73,24 @@ namespace FrontEnd.Features.Category.Service
             };
 
             data = await _responseHelper.SendAndAcceptResponse(request);
-            return await Task.FromResult(data);
+            return data;
         }
 
         public async Task<GetCountGoodsResponse> AddCategory(CategoryRequestModel categoryRequest)
         {
             Uri connectionString = new Uri(_apiString+"add");
-            GetCountGoodsResponse data = new GetCountGoodsResponse();
 
 
             var content = new StringContent(JsonConvert.SerializeObject(categoryRequest), Encoding.UTF8, "application/json");
             var request = new HttpRequestMessage()
             {
                 RequestUri = connectionString,
-                Method = new HttpMethod("POST"),
-                Content = JsonContent.Create(categoryRequest)
+                Method = HttpMethod.Post,
+                Content = content,
             };
-
-            data = await _responseHelper.SendAndAcceptResponse(request);
-            return await Task.FromResult(data);
+            
+            var data = await _responseHelper.SendAndAcceptResponse(request);
+            return data;
         }
     }
 }

@@ -40,8 +40,8 @@ public class CategoriesController : Controller
             return NoContent();
 
         var addCategory = _categoryManager.AddCategory(newCategory);
-
         var data = await _requestClient.GetResponse<GetCountGoodsResponse>(addCategory, cancellationToken);
+
         await _publishEndpoint.Publish<CategoryMessage>(
             new CategoryMessage() { Category = data.Message, OperationType = CategoryOperationTypes.Add });
         

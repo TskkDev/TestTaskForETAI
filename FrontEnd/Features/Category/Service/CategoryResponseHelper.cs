@@ -6,11 +6,12 @@ namespace FrontEnd.Features.Category.Service
 {
     public class CategoryResponseHelper
     {
-        HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
         public CategoryResponseHelper(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
+
         public async Task<List<GetCountGoodsResponse>> SendAndAcceptListResponse(HttpRequestMessage request)
         {
             using (var response = await _httpClient.SendAsync(request))
@@ -28,7 +29,7 @@ namespace FrontEnd.Features.Category.Service
             }
         }
 
-        public async Task<GetCountGoodsResponse>SendAndAcceptResponse(HttpRequestMessage request)
+        public async Task<GetCountGoodsResponse> SendAndAcceptResponse(HttpRequestMessage request)
         {
             using (var response = await _httpClient.SendAsync(request))
             {
