@@ -1,3 +1,34 @@
+/* /Features/Category/Component/CategoriesModalComponent.razor.rz.scp.css */
+form[b-xmzkfo1mix] {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px
+}
+
+.categoryName[b-xmzkfo1mix], .parentCategoryId[b-xmzkfo1mix] {
+    border-radius: 10px;
+    border-color: green
+}
+
+.categoryName[b-xmzkfo1mix], .categoryName[b-xmzkfo1mix]::placeholder, .parentCategoryId[b-xmzkfo1mix], .parentCategoryId[b-xmzkfo1mix]::placeholder {
+    font-size: 16px;
+    padding: 2px 7px 2px 7px;
+}
+
+.categoryName[b-xmzkfo1mix]::placeholder, .parentCategoryId[b-xmzkfo1mix]::placeholder {
+    color: dimgrey
+}
+
+.send_btn[b-xmzkfo1mix] {
+    border-radius: 10px;
+    border: none;
+    background-color: forestgreen;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px 0 5px 0
+}
 /* /Features/Category/Component/CategoryListComponent.razor.rz.scp.css */
 ul[b-rh4henzwph] {
     list-style: initial;
@@ -47,33 +78,6 @@ ul[b-rh4henzwph] {
 .category__toggleBtn[b-rh4henzwph], .category__editBtn[b-rh4henzwph] {
     background-color: transparent;
     border: none
-}
-/* /Features/Category/Component/CategoryModalComponent.razor.rz.scp.css */
-form[b-fplftjgjne]{
-    display:flex;
-    flex-direction:column;
-    gap:30px;
-    padding: 20px
-}
-.categoryName[b-fplftjgjne], .parentCategoryId[b-fplftjgjne] {
-    border-radius: 10px;
-    border-color: green
-}
-.categoryName[b-fplftjgjne], .categoryName[b-fplftjgjne]::placeholder, .parentCategoryId[b-fplftjgjne], .parentCategoryId[b-fplftjgjne]::placeholder {
-    font-size: 16px;
-    padding: 2px 7px 2px 7px;
-}
-.categoryName[b-fplftjgjne]::placeholder, .parentCategoryId[b-fplftjgjne]::placeholder{
-    color:dimgrey
-}
-.add_bnt[b-fplftjgjne] {
-    border-radius: 10px;
-    border: none;
-    background-color: forestgreen;
-    color: black;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 5px 0 5px 0
 }
 /* /Shared/Components/ModalComponent.razor.rz.scp.css */
 .modal[b-xb3t9zv63l] {

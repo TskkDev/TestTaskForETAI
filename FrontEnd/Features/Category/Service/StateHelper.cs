@@ -13,15 +13,20 @@ namespace FrontEnd.Features.Category.Service
             {
                 if (c.Id == oldCategoryId)
                 {
-                    if (c.SubCategories != null && c.SubCategories.Any())
-                    {
-                        newCategory.SubCategories = c.SubCategories;
-                    }
                     if (c.IsVisible)
                     {
                         newCategory.IsVisible = false;
                     }
-                    return newCategory;
+                    if (newCategory.SubCategories.Any())
+                    {
+                        return newCategory;
+                    }
+                    if (c.SubCategories != null && c.SubCategories.Any())
+                    {
+                        c.SubCategories.Add(newCategory);
+                        //newCategory.SubCategories = c.SubCategories;
+                    }
+                    return c;
                 }
                 else if (c.SubCategories != null && c.SubCategories.Any())
                 {

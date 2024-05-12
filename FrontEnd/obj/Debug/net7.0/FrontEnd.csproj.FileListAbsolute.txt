@@ -842,7 +842,6 @@ C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\staticweba
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Category\Component\CategoryListComponent.razor.rz.scp.css
-C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Category\Component\CategoryModalComponent.razor.rz.scp.css
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Shared\Components\ModalComponent.razor.rz.scp.css
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Shared\Pages\Index.razor.rz.scp.css
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\bundle\FrontEnd.styles.css
@@ -852,3 +851,4 @@ C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\FrontEnd.d
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\refint\FrontEnd.dll
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\FrontEnd.pdb
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\ref\FrontEnd.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Category\Component\CategoriesModalComponent.razor.rz.scp.css

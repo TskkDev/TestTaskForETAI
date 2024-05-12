@@ -8,6 +8,10 @@ namespace FrontEnd.Features.Category.Component
 {
     public partial class CategoryListComponent
     {
+        private int CategoryId;
+        private int? ParentCategoryId;
+        private string CategoryName;
+
         ModalComponent modal;
         [Parameter]
         public IEnumerable<GetCountGoodsResponse> Categories { get; set; }
@@ -18,11 +22,15 @@ namespace FrontEnd.Features.Category.Component
             StateHasChanged();
         }
 
-        void OpenModal()
+        void OpenModal(GetCountGoodsResponse info)
         {
+            CategoryId = info.Id;
+            ParentCategoryId = info.ParentCategoryId;
+            CategoryName = info.Name;
+
             modal.Open();
         }
-        void Close()
+        void CloseModal()
         {
             modal.Close();
         }

@@ -7,21 +7,22 @@
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
 <ModalComponent @ref="modal">
-    <CategoryModalComponent></CategoryModalComponent>
+    <CategoriesModalComponent CategoryName="@CategoryName" ParentCategoryId="@ParentCategoryId"
+    ToggleModal="@CloseModal" UpdateId="@CategoryId"></CategoriesModalComponent>
 </ModalComponent>
-
 @if (Categories != null && Categories.Any())
 {
     <ul class="category__ul">
         @foreach (var category in Categories)
         {
+
             <li class="category__li">
                 <div class="category__li__content">
                     <div class="category__li__info">
                         <p class="category__li__name">
                             Name:
                             <span class="category__li__name__value">@category.Name </span>
-                            <button class="category__editBtn" @onclick="() =>OpenModal()">🖊️</button>
+                            <button class="category__editBtn" @onclick="() =>OpenModal(category)">🖊️</button>
                         </p>
                         <p class="category__li__subInfo">
                             Id:
@@ -31,7 +32,9 @@
                         </p>
                     </div>
 
-                    <button class="category__toggleBtn" @onclick="() => ToggleCategory(category)">▼</button>
+                    <button class="category__toggleBtn" @onclick="() => ToggleCategory(category)">
+                        @(category.IsVisible ? "▲" : "▼")
+                        </button>
                     </div>
                     @if (category.IsVisible)
                     {

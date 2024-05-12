@@ -1,0 +1,11 @@
+﻿@inject IDispatcher Dispatcher
+@inject IState<CategoryState> CategoryState
+
+<form>
+    <label style="display: @(UpdateId is null ? "none" : "flex")"> Updated category id @UpdateId </label>
+    <input class="categoryName" type="text" placeholder="Category Name" @bind="CategoryName" required>
+
+    <input class="parentCategoryId" type="number" placeholder="Parent Category Id" @bind="ParentCategoryId">
+
+    <button class="send_btn" type="button" onclick="@Send">@(UpdateId is null ? "Add Category" : "Update Category")</button>
+</form>

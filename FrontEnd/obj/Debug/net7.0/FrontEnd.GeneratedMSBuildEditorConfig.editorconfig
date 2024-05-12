@@ -28,13 +28,13 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/home/Desktop/repos/TestTaskForETAI/FrontEnd/Features/Category/Component/CategoriesModalComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ2F0ZWdvcnlcQ29tcG9uZW50XENhdGVnb3JpZXNNb2RhbENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-xmzkfo1mix
+
 [C:/Users/home/Desktop/repos/TestTaskForETAI/FrontEnd/Features/Category/Component/CategoryListComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ2F0ZWdvcnlcQ29tcG9uZW50XENhdGVnb3J5TGlzdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-rh4henzwph
-
-[C:/Users/home/Desktop/repos/TestTaskForETAI/FrontEnd/Features/Category/Component/CategoryModalComponent.razor]
-build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ2F0ZWdvcnlcQ29tcG9uZW50XENhdGVnb3J5TW9kYWxDb21wb25lbnQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-fplftjgjne
 
 [C:/Users/home/Desktop/repos/TestTaskForETAI/FrontEnd/Shared/Components/ModalComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTW9kYWxDb21wb25lbnQucmF6b3I=

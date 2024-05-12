@@ -1,0 +1,30 @@
+﻿form[b-xmzkfo1mix] {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px
+}
+
+.categoryName[b-xmzkfo1mix], .parentCategoryId[b-xmzkfo1mix] {
+    border-radius: 10px;
+    border-color: green
+}
+
+.categoryName[b-xmzkfo1mix], .categoryName[b-xmzkfo1mix]::placeholder, .parentCategoryId[b-xmzkfo1mix], .parentCategoryId[b-xmzkfo1mix]::placeholder {
+    font-size: 16px;
+    padding: 2px 7px 2px 7px;
+}
+
+.categoryName[b-xmzkfo1mix]::placeholder, .parentCategoryId[b-xmzkfo1mix]::placeholder {
+    color: dimgrey
+}
+
+.send_btn[b-xmzkfo1mix] {
+    border-radius: 10px;
+    border: none;
+    background-color: forestgreen;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px 0 5px 0
+}
