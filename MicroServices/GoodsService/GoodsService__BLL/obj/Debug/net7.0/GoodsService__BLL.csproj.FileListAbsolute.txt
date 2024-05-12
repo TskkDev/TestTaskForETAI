@@ -1,0 +1,17 @@
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\bin\Debug\net7.0\GoodsService__BLL.deps.json
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\bin\Debug\net7.0\GoodsService__BLL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\bin\Debug\net7.0\GoodsService__BLL.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\bin\Debug\net7.0\GoodsService__DAL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\bin\Debug\net7.0\SharedModels.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\bin\Debug\net7.0\GoodsService__DAL.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\bin\Debug\net7.0\SharedModels.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\GoodsService__BLL.csproj.AssemblyReference.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\GoodsService__BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\GoodsService__BLL.AssemblyInfoInputs.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\GoodsService__BLL.AssemblyInfo.cs
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\GoodsService__BLL.csproj.CoreCompileInputs.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\GoodsService__BLL.csproj.CopyComplete
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\GoodsService__BLL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\refint\GoodsService__BLL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\GoodsService__BLL.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\GoodsService__BLL\obj\Debug\net7.0\ref\GoodsService__BLL.dll

@@ -1,0 +1,17 @@
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\bin\Debug\net7.0\CategoriesService__BLL.deps.json
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\bin\Debug\net7.0\CategoriesService__BLL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\bin\Debug\net7.0\CategoriesService__BLL.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\bin\Debug\net7.0\CategoriesService__DAL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\bin\Debug\net7.0\SharedModels.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\bin\Debug\net7.0\CategoriesService__DAL.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\bin\Debug\net7.0\SharedModels.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\CategoriesService__BLL.csproj.AssemblyReference.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\CategoriesService__BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\CategoriesService__BLL.AssemblyInfoInputs.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\CategoriesService__BLL.AssemblyInfo.cs
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\CategoriesService__BLL.csproj.CoreCompileInputs.cache
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\CategoriesService__BLL.csproj.CopyComplete
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\CategoriesService__BLL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\refint\CategoriesService__BLL.dll
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\CategoriesService__BLL.pdb
+C:\Users\home\Desktop\repos\TestTaskForETAI\CategoriesService__BLL\obj\Debug\net7.0\ref\CategoriesService__BLL.dll

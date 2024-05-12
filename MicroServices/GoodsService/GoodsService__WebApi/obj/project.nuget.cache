@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ift4PuqTRE6VGZ92vYk5sAw7jmk3tiwm/L9ahaFp7ro7dSKJC8k2MT73SCYK1INrqqoI3ySAwR3xbhDafB7fGQ==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\GoodsService\\GoodsService__WebApi\\GoodsService__WebApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\home\\.nuget\\packages\\fluentmigrator\\5.2.0\\fluentmigrator.5.2.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\fluentmigrator.abstractions\\5.2.0\\fluentmigrator.abstractions.5.2.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\linq2db\\5.4.1\\linq2db.5.4.1.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\masstransit\\8.2.2\\masstransit.8.2.2.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\masstransit.abstractions\\8.2.2\\masstransit.abstractions.8.2.2.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\masstransit.aspnetcore\\7.3.1\\masstransit.aspnetcore.7.3.1.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\masstransit.extensions.dependencyinjection\\7.3.1\\masstransit.extensions.dependencyinjection.7.3.1.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\masstransit.rabbitmq\\8.2.2\\masstransit.rabbitmq.8.2.2.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks\\6.0.1\\microsoft.extensions.diagnostics.healthchecks.6.0.1.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks.abstractions\\6.0.1\\microsoft.extensions.diagnostics.healthchecks.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\6.0.0\\microsoft.extensions.hosting.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\npgsql\\8.0.2\\npgsql.8.0.2.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
+    "C:\\Users\\home\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Не удалось найти проект \"C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\GoodsService\\SharedModels\\SharedModels.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
+      "libraryId": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\GoodsService\\SharedModels\\SharedModels.csproj",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
+}

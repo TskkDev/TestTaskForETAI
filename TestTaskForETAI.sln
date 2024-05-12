@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{22
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices", "MicroServices", "{3E8B8556-3206-4B56-94C6-698BC85ED377}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__WebApi", "CategoriesService__WebApi\CategoriesService__WebApi.csproj", "{C6CA50D7-1622-421C-815C-EEB57DC6FDFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__WebApi", "MicroServices\CategoryService\CategoriesService__WebApi\CategoriesService__WebApi.csproj", "{C6CA50D7-1622-421C-815C-EEB57DC6FDFA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__WebApi", "GoodsService__WebApi\GoodsService__WebApi.csproj", "{7711E73F-EBA2-4D59-B2C7-2E1AB8E97C99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__WebApi", "MicroServices\GoodsService\GoodsService__WebApi\GoodsService__WebApi.csproj", "{7711E73F-EBA2-4D59-B2C7-2E1AB8E97C99}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{A08C796C-17F8-492B-9973-B218A8AE40BE}"
 EndProject
@@ -17,15 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedModels", "SharedModel
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CategoriesService", "CategoriesService", "{2EC4FCCA-D09B-452B-A010-8B2C39F78EB2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__BLL", "CategoriesService__BLL\CategoriesService__BLL.csproj", "{D01A3DA7-788A-4F99-B2D8-9A44A7BF8A00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__BLL", "MicroServices\CategoryService\CategoriesService__BLL\CategoriesService__BLL.csproj", "{D01A3DA7-788A-4F99-B2D8-9A44A7BF8A00}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__DAL", "CategoriesService__DAL\CategoriesService__DAL.csproj", "{5AFCF4F0-9C07-4438-885D-F997239F1488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__DAL", "MicroServices\CategoryService\CategoriesService__DAL\CategoriesService__DAL.csproj", "{5AFCF4F0-9C07-4438-885D-F997239F1488}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoodsService", "GoodsService", "{95AA8FAE-FAB2-468C-867B-4E409F4C268E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__DAL", "GoodsService__DAL\GoodsService__DAL.csproj", "{4135A517-391B-4BBD-9877-F771CC27947F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__DAL", "MicroServices\GoodsService\GoodsService__DAL\GoodsService__DAL.csproj", "{4135A517-391B-4BBD-9877-F771CC27947F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__BLL", "GoodsService__BLL\GoodsService__BLL.csproj", "{86CAB30F-EDBB-4CC2-97D1-B3345D464190}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__BLL", "MicroServices\GoodsService\GoodsService__BLL\GoodsService__BLL.csproj", "{86CAB30F-EDBB-4CC2-97D1-B3345D464190}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{F1DF216B-7075-489F-B1EC-401505879DDA}"
 EndProject

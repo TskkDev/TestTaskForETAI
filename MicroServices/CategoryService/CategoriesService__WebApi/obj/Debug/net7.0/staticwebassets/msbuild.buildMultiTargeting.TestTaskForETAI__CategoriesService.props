@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TestTaskForETAI__CategoriesService.props" />
+</Project>
