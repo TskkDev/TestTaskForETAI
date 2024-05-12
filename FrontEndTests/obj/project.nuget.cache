@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NdpNJaKPu/bMHdGBaIccfMU+9oJGRFongNkoubvtMVZCEQg59Z96gFTz5oXJBScWp1JnoIWAF9JefRCEPfPaUw==",
+  "dgSpecHash": "I743qrZQ96rTLYJEMx0gofAnCnzH82+H5Zka/GilRTBVYSN1wTCLAqoV+xhbh/T550ixyLYYcS32s2DFf8NZKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEndTests1\\FrontEndTests1.csproj",
+  "projectFilePath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEndTests\\FrontEndTests1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\home\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\home\\.nuget\\packages\\fluxor\\5.9.1\\fluxor.5.9.1.nupkg.sha512",

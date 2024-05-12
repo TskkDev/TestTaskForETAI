@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{22
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices", "MicroServices", "{3E8B8556-3206-4B56-94C6-698BC85ED377}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__WebApi", "TestTaskForETAI__CategoriesService\CategoriesService__WebApi.csproj", "{C6CA50D7-1622-421C-815C-EEB57DC6FDFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoriesService__WebApi", "CategoriesService__WebApi\CategoriesService__WebApi.csproj", "{C6CA50D7-1622-421C-815C-EEB57DC6FDFA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__WebApi", "TestTaskForETAI__GoodsService\GoodsService__WebApi.csproj", "{7711E73F-EBA2-4D59-B2C7-2E1AB8E97C99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__WebApi", "GoodsService__WebApi\GoodsService__WebApi.csproj", "{7711E73F-EBA2-4D59-B2C7-2E1AB8E97C99}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{A08C796C-17F8-492B-9973-B218A8AE40BE}"
 EndProject
@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__BLL", "GoodsS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{F1DF216B-7075-489F-B1EC-401505879DDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndTests1", "FrontEndTests1\FrontEndTests1.csproj", "{EFF2BFC4-2ACD-4294-85CA-5DC116F44D2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndTests", "FrontEndTests\FrontEndTests1.csproj", "{EFF2BFC4-2ACD-4294-85CA-5DC116F44D2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

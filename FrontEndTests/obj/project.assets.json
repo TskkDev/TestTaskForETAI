@@ -3623,11 +3623,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEndTests1\\FrontEndTests1.csproj",
+      "projectUniqueName": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEndTests\\FrontEndTests1.csproj",
       "projectName": "FrontEndTests1",
-      "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEndTests1\\FrontEndTests1.csproj",
+      "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEndTests\\FrontEndTests1.csproj",
       "packagesPath": "C:\\Users\\home\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEndTests1\\obj\\",
+      "outputPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\FrontEndTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
