@@ -197,6 +197,16 @@
         "runtime": {
           "bin/placeholder/CategoriesService__DAL.dll": {}
         }
+      },
+      "SharedModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/SharedModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SharedModels.dll": {}
+        }
       }
     }
   },
@@ -640,12 +650,17 @@
       "type": "project",
       "path": "../CategoriesService__DAL/CategoriesService__DAL.csproj",
       "msbuildProject": "../CategoriesService__DAL/CategoriesService__DAL.csproj"
+    },
+    "SharedModels/1.0.0": {
+      "type": "project",
+      "path": "../../../SharedModels/SharedModels.csproj",
+      "msbuildProject": "../../../SharedModels/SharedModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\CategoryService\\SharedModels\\SharedModels.csproj",
-      "CategoriesService__DAL >= 1.0.0"
+      "CategoriesService__DAL >= 1.0.0",
+      "SharedModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -684,8 +699,8 @@
             "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\CategoryService\\CategoriesService__DAL\\CategoriesService__DAL.csproj": {
               "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\CategoryService\\CategoriesService__DAL\\CategoriesService__DAL.csproj"
             },
-            "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\CategoryService\\SharedModels\\SharedModels.csproj": {
-              "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\CategoryService\\SharedModels\\SharedModels.csproj"
+            "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\SharedModels\\SharedModels.csproj": {
+              "projectPath": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\SharedModels\\SharedModels.csproj"
             }
           }
         }
@@ -718,16 +733,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Не удалось найти проект \"C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\CategoryService\\SharedModels\\SharedModels.csproj\". Убедитесь, что ссылка на проект действительна и файл проекта существует.",
-      "libraryId": "C:\\Users\\home\\Desktop\\repos\\TestTaskForETAI\\MicroServices\\CategoryService\\SharedModels\\SharedModels.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  }
 }
