@@ -1,6 +1,7 @@
 ﻿using FrontEnd.Features.Category.Models;
 using FrontEnd.Features.Category.StateManagment.Actions.AddCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
+using FrontEnd.Features.Category.StateManagment.Actions.UpdateCategoryAction;
 using Microsoft.AspNetCore.Components;
 using SharedModels.Models.RequestModels;
 
@@ -28,7 +29,8 @@ namespace FrontEnd.Features.Category.Component
                     Name = CategoryName,
                     ParentCategoryId = ParentCategoryId,
                 };
-                Dispatcher.Dispatch(new AddCategoryAction(CategoryState.Value.Categories, newCategory));
+                Dispatcher.Dispatch(new AddCategoryAction(CategoryState.Value.Categories, 
+                    newCategory));
             }
             else
             {
@@ -42,7 +44,8 @@ namespace FrontEnd.Features.Category.Component
                     }
 
                 };
-                //Complite
+                Dispatcher.Dispatch(new UpdateCategoryAction(CategoryState.Value.Categories, 
+                    updatedCategpry));
             }
             CategoryName = "";
             ParentCategoryId = null;

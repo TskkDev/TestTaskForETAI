@@ -4,6 +4,7 @@ using FrontEnd.Features.Category.Service;
 using FrontEnd.Features.Category.StateManagment.Actions.AddCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TopCategoryActions;
+using FrontEnd.Features.Category.StateManagment.Actions.UpdateCategoryAction;
 using static System.Net.WebRequestMethods;
 
 namespace FrontEnd.Features.Category.StateManagment.Effects
@@ -47,6 +48,25 @@ namespace FrontEnd.Features.Category.StateManagment.Effects
             var newCategories = _stateHelper.AddCategoryInListCategories(newCategory, categories);
 
             dispatcher.Dispatch(new AddCategoryResultAction(newCategories));
+        }
+
+        [EffectMethod]
+        public async Task HandleUpdateCategoryAction(UpdateCategoryAction action, IDispatcher dispatcher)
+        {
+            var categories = action.Categories;
+
+            var updatedCategory = await _categoryService.UpdateCategory(action.Category);
+
+            categories = _stateHelper.DeleteCategoryFromListCategories(categories, 
+                action.Category.CategoryId);
+
+            var deletedCategory = _stateHelper.DeletedCategory;
+            deletedCategory.ParentCategoryId = updatedCategory.ParentCategoryId;
+            deletedCategory.Name = updatedCategory.Name;
+
+            var newCategories = _stateHelper.AddCategoryInListCategories(deletedCategory, categories);
+
+            dispatcher.Dispatch(new UpdateCategoryResultAction(newCategories));
         }
     }
 }

@@ -29,7 +29,6 @@ namespace FrontEnd.Features.Category.Service
         public async Task<List<GetCountGoodsResponse>> GetAllTopicCategory()
         {
             Uri connectionString = new Uri(_apiString + "getAllTopicCategory");
-            List<GetCountGoodsResponse> data = new List<GetCountGoodsResponse>();
 
 
             var request = new HttpRequestMessage()
@@ -38,14 +37,13 @@ namespace FrontEnd.Features.Category.Service
                 RequestUri = connectionString,
             };
 
-            data = await _responseHelper.SendAndAcceptListResponse(request);
+            var data = await _responseHelper.SendAndAcceptListResponse(request);
             return data;
         }
 
         public async Task<GetCountGoodsResponse> GetCategoryById(int id)
         {
             Uri connectionString = new Uri(_apiString + id);
-            GetCountGoodsResponse data = new GetCountGoodsResponse();
 
 
             var request = new HttpRequestMessage()
@@ -55,24 +53,23 @@ namespace FrontEnd.Features.Category.Service
             };
 
 
-            data = await _responseHelper.SendAndAcceptResponse(request);
+            var data = await _responseHelper.SendAndAcceptResponse(request);
             return data;
         }
 
         public async Task<GetCountGoodsResponse> UpdateCategory(CategoryUpdateModel categoryUpdate)
         {
             Uri connectionString = new Uri(_apiString + categoryUpdate.CategoryId+"/update");
-            GetCountGoodsResponse data = new GetCountGoodsResponse();
-
+            var content = new StringContent(JsonConvert.SerializeObject(categoryUpdate.NewCategory), Encoding.UTF8, "application/json");
 
             var request = new HttpRequestMessage()
             {
                 Method = HttpMethod.Patch,
                 RequestUri = connectionString,
-                Content = new StringContent(JsonConvert.SerializeObject(categoryUpdate.NewCategory))
+                Content = content
             };
 
-            data = await _responseHelper.SendAndAcceptResponse(request);
+            var data = await _responseHelper.SendAndAcceptResponse(request);
             return data;
         }
 

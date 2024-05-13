@@ -1,18 +1,25 @@
 ﻿using SharedModels.Models.RespondModels.Response;
+using System.Runtime.InteropServices;
 
 namespace FrontEnd.Features.Category.Service
 {
     public class StateHelper
     {
+        public GetCountGoodsResponse DeletedCategory { get; private set; }
         public List<GetCountGoodsResponse> ChangeCategoryInListCategories
             (
             IEnumerable<GetCountGoodsResponse> categoryList, int oldCategoryId,
-            GetCountGoodsResponse newCategory)
+            GetCountGoodsResponse newCategory, bool isAdd = false)
         {
             var newCategoryList = categoryList.Select(c =>
             {
                 if (c.Id == oldCategoryId)
                 {
+                    if (isAdd)
+                    {
+                        c.SubCategories.Add(newCategory);
+                        return c;
+                    }
                     if (c.IsVisible)
                     {
                         newCategory.IsVisible = false;
@@ -21,16 +28,11 @@ namespace FrontEnd.Features.Category.Service
                     {
                         return newCategory;
                     }
-                    if (c.SubCategories != null && c.SubCategories.Any())
-                    {
-                        c.SubCategories.Add(newCategory);
-                        //newCategory.SubCategories = c.SubCategories;
-                    }
                     return c;
                 }
                 else if (c.SubCategories != null && c.SubCategories.Any())
                 {
-                    var updatedSubCategories = ChangeCategoryInListCategories(c.SubCategories, oldCategoryId, newCategory);
+                    var updatedSubCategories = ChangeCategoryInListCategories(c.SubCategories, oldCategoryId, newCategory, isAdd);
                     c.SubCategories = updatedSubCategories;
                 }
                 return c;
@@ -47,7 +49,27 @@ namespace FrontEnd.Features.Category.Service
                 newCategories.Add(tempCategory);
                 return newCategories;
             }
-            return ChangeCategoryInListCategories(categories, tempCategory.ParentCategoryId??throw new Exception("Noway error"), tempCategory);
+            return ChangeCategoryInListCategories(categories, tempCategory.ParentCategoryId ?? throw new Exception("Noway error"), tempCategory, true);
+        }
+
+        public List<GetCountGoodsResponse> DeleteCategoryFromListCategories (IEnumerable<GetCountGoodsResponse> categories,
+            int categoryId)
+        {
+            var newCategories = categories.Select(c =>
+            {
+                if(c.Id == categoryId)
+                {
+                    DeletedCategory = c;
+                    return null;
+                }
+                else if (c.SubCategories != null && c.SubCategories.Any())
+                {
+                    var updatedSubCategories = DeleteCategoryFromListCategories(c.SubCategories, categoryId);
+                    c.SubCategories = updatedSubCategories;
+                }
+                return c;
+            }).Where(c=>c!=null).ToList();
+            return newCategories;
         }
     }
 }
