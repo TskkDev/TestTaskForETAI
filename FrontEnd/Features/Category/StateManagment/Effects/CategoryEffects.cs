@@ -9,11 +9,11 @@ using static System.Net.WebRequestMethods;
 
 namespace FrontEnd.Features.Category.StateManagment.Effects
 {
-    public class Effects
+    public class CategoryEffects
     {
         private readonly ICategoryService _categoryService;
         private readonly StateHelper _stateHelper;
-        public Effects(ICategoryService categoryService)
+        public CategoryEffects(ICategoryService categoryService)
         {
             _categoryService = categoryService;
             _stateHelper = new StateHelper();

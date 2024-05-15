@@ -12,7 +12,7 @@ ul[b-rh4henzwph] {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
 }
 .category__li__info[b-rh4henzwph] {
     display: flex;
@@ -28,7 +28,8 @@ ul[b-rh4henzwph] {
 }
 .category__li__name__value[b-rh4henzwph]{
     color:black;
-    font-weight:700
+    font-weight:700;
+    text-decoration:underline
 }
 .category__li__subInfo[b-rh4henzwph] {
     opacity: 0.6;
@@ -46,4 +47,13 @@ ul[b-rh4henzwph] {
 .category__toggleBtn[b-rh4henzwph], .category__editBtn[b-rh4henzwph] {
     background-color: transparent;
     border: none
+}
+.category__loadGoods[b-rh4henzwph] {
+    border-radius: 10px;
+    border: none;
+    background-color: forestgreen;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px
 }

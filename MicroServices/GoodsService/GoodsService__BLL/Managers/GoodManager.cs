@@ -1,8 +1,8 @@
 ﻿using GoodsService__BLL.Interface;
-using GoodsService__BLL.Models;
 using GoodsService__BLL.Services;
 using GoodsService__DAL.Enities;
 using GoodsService__DAL.Repositories;
+using SharedModels.Models.RequestModels;
 using SharedModels.Models.RespondModels.Request;
 
 namespace GoodsService__BLL.Managers

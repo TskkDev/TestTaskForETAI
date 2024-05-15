@@ -37,7 +37,7 @@ public class CategoriesController : Controller
         CancellationToken cancellationToken)
     {
         if (string.IsNullOrEmpty(newCategory.Name))
-            return NoContent();
+            return BadRequest();
 
         var addCategory = _categoryManager.AddCategory(newCategory);
         var data = await _requestClient.GetResponse<GetCountGoodsResponse>(addCategory, cancellationToken);

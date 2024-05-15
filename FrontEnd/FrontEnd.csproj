@@ -19,8 +19,4 @@
     <ProjectReference Include="..\SharedModels\SharedModels.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Goods\" />
-  </ItemGroup>
-
 </Project>

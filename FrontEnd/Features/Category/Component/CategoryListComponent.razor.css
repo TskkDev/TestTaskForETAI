@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
 }
 .category__li__info {
     display: flex;
@@ -28,7 +28,8 @@
 }
 .category__li__name__value{
     color:black;
-    font-weight:700
+    font-weight:700;
+    text-decoration:underline
 }
 .category__li__subInfo {
     opacity: 0.6;
@@ -46,4 +47,13 @@
 .category__toggleBtn, .category__editBtn {
     background-color: transparent;
     border: none
+}
+.category__loadGoods {
+    border-radius: 10px;
+    border: none;
+    background-color: forestgreen;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px
 }

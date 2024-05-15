@@ -36,6 +36,18 @@ build_metadata.AdditionalFiles.CssScope = b-xmzkfo1mix
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ2F0ZWdvcnlcQ29tcG9uZW50XENhdGVnb3J5TGlzdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-rh4henzwph
 
+[C:/Users/home/Desktop/repos/TestTaskForETAI/FrontEnd/Features/Goods/Component/DialogModalComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcR29vZHNcQ29tcG9uZW50XERpYWxvZ01vZGFsQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-j3l9ln6tmy
+
+[C:/Users/home/Desktop/repos/TestTaskForETAI/FrontEnd/Features/Goods/Component/GoodsModalComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcR29vZHNcQ29tcG9uZW50XEdvb2RzTW9kYWxDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-udb501ul69
+
+[C:/Users/home/Desktop/repos/TestTaskForETAI/FrontEnd/Features/Goods/Component/GoodsTableComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcR29vZHNcQ29tcG9uZW50XEdvb2RzVGFibGVDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-8q1koh8zeh
+
 [C:/Users/home/Desktop/repos/TestTaskForETAI/FrontEnd/Shared/Components/ModalComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcTW9kYWxDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xb3t9zv63l

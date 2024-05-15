@@ -852,3 +852,6 @@ C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\refint\Fro
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\FrontEnd.pdb
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\ref\FrontEnd.dll
 C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Category\Component\CategoriesModalComponent.razor.rz.scp.css
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Goods\Component\GoodsTableComponent.razor.rz.scp.css
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Goods\Component\GoodsModalComponent.razor.rz.scp.css
+C:\Users\home\Desktop\repos\TestTaskForETAI\FrontEnd\obj\Debug\net7.0\scopedcss\Features\Goods\Component\DialogModalComponent.razor.rz.scp.css

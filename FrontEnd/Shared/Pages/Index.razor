@@ -2,8 +2,11 @@
 @using FrontEnd.Features.Category.StateManagment.Actions.TopCategoryActions;
 @using FrontEnd.Features.Category.StateManagment.States;
 @using FrontEnd.Features.Category.Component;
+@using FrontEnd.Features.Goods.StateManagment.States;
+@using FrontEnd.Features.Goods.Component;
 @using FrontEnd.Shared.Components
 @inject IState<CategoryState> CategoryState
+@inject IState<GoodState> GoodState
 @inject IDispatcher Dispatcher
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
@@ -21,7 +24,15 @@
         <CategoryListComponent Categories="CategoryState.Value.Categories" />
 
     </div>
-
+    <div class="goods__block">
+        @if (GoodState.Value.Goods is not null)
+        {
+            <h1>Category: @GoodState.Value.Goods.First().CategoryName</h1>
+            <GoodsTableComponent Goods="GoodState.Value.Goods"
+                                 CategoryIdParam="GoodState.Value.Goods.First().CategoryId" 
+                                 RefreshParent="RefreshParent" />
+        }
+    </div>
 </div>
 
 

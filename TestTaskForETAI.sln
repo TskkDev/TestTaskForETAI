@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsService__BLL", "MicroS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{F1DF216B-7075-489F-B1EC-401505879DDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndTests", "FrontEndTests\FrontEndTests1.csproj", "{EFF2BFC4-2ACD-4294-85CA-5DC116F44D2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEndTests1", "FrontEndTests\FrontEndTests1.csproj", "{EFF2BFC4-2ACD-4294-85CA-5DC116F44D2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

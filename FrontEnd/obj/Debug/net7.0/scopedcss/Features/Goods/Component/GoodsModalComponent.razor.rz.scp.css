@@ -1,0 +1,30 @@
+﻿form[b-udb501ul69] {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px
+}
+
+input[b-udb501ul69] {
+    border-radius: 10px;
+    border-color: green
+}
+
+input[b-udb501ul69], input[b-udb501ul69]::placeholder {
+    font-size: 16px;
+    padding: 2px 7px 2px 7px;
+}
+
+input[b-udb501ul69]::placeholder, {
+    color: dimgrey
+}
+
+.send_btn[b-udb501ul69] {
+    border-radius: 10px;
+    border: none;
+    background-color: forestgreen;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px 0 5px 0
+}

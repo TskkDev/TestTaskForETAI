@@ -42,7 +42,7 @@ public class GoodsRepostiry : IGoodsRepository
 
     public IEnumerable<Good> GetAllGoodsFromCategory(int categoryId)
     {
-        return _db.Goods.Where(c => c.CategoryId == categoryId);
+        return _db.Goods.Where(c => c.CategoryId == categoryId).OrderBy(g=>g.Id);
     }
 
     public IEnumerable<Good> SortGoods(IEnumerable<Good> goodFromCategory, string fieldName, bool ascending)

@@ -1,4 +1,4 @@
-﻿using GoodsService__BLL.Models;
+﻿using SharedModels.Models.RequestModels;
 using SharedModels.Models.RespondModels.Request;
 
 namespace GoodsService__BLL.Interface

@@ -1,4 +1,4 @@
-namespace GoodsService__BLL.Models;
+namespace SharedModels.Models.RequestModels;
 
 public class GoodRequestModel
 {

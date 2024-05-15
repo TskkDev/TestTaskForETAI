@@ -1,4 +1,5 @@
 ﻿using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
+using FrontEnd.Features.Goods.StateManagment.Actions.LoadGoodsAction;
 using FrontEnd.Shared.Components;
 using Microsoft.AspNetCore.Components;
 using SharedModels.Models.RespondModels.Response;
@@ -21,8 +22,12 @@ namespace FrontEnd.Features.Category.Component
             Dispatcher.Dispatch(new TongleCategoryAction(CategoryState.Value.Categories, category.Id));
             StateHasChanged();
         }
-
-        void OpenModal(GetCountGoodsResponse info)
+        private void LoadGoodsFromCategory (int categoryId)
+        {
+            Dispatcher.Dispatch(new LoadGoodsAction(categoryId));
+            StateHasChanged();
+        }
+        private void OpenModal(GetCountGoodsResponse info)
         {
             CategoryId = info.Id;
             ParentCategoryId = info.ParentCategoryId;
@@ -30,7 +35,7 @@ namespace FrontEnd.Features.Category.Component
 
             modal.Open();
         }
-        void CloseModal()
+        private void CloseModal()
         {
             modal.Close();
         }

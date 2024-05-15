@@ -1,0 +1,13 @@
+﻿@using FrontEnd.Features.Goods.StateManagment.States;
+@inject IDispatcher Dispatcher
+@inject IState<GoodState> GoodState
+
+<form>
+    <label style="display: @(UpdateId is null ? "none" : "flex")"> Updated category id @UpdateId </label>
+    <input type="text" placeholder="Good Name" @bind="GoodName" required>
+    <input type="text" placeholder="Disc" @bind="Disc" required>
+    <input type="number" placeholder="Price" @bind="Price" required>
+    <input type="text" placeholder=" Category Id" @bind="CategoryId" required>
+
+    <button class="send_btn" type="button" onclick="@Send">@(UpdateId is null ? "Add Category" : "Update Category")</button>
+</form>

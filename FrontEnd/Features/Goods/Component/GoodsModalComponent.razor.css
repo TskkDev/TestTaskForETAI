@@ -1,0 +1,30 @@
+﻿﻿form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px
+}
+
+input {
+    border-radius: 10px;
+    border-color: green
+}
+
+input, input::placeholder {
+    font-size: 16px;
+    padding: 2px 7px 2px 7px;
+}
+
+input::placeholder, {
+    color: dimgrey
+}
+
+.send_btn {
+    border-radius: 10px;
+    border: none;
+    background-color: forestgreen;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px 0 5px 0
+}

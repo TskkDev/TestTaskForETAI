@@ -1,5 +1,5 @@
-using GoodsService__BLL.Models;
 using GoodsService__DAL.Enities;
+using SharedModels.Models.RequestModels;
 using SharedModels.Models.RespondModels.Request;
 
 namespace GoodsService__BLL.Services;

@@ -1,0 +1,11 @@
+﻿@using FrontEnd.Features.Goods.StateManagment.States;
+@inject IDispatcher Dispatcher
+@inject IState<GoodState> GoodState
+
+
+<form>
+    <label> Delete category id @DeleteId </label>
+
+    <button class="send_btn" type="button" onclick="@Send">Accept</button>
+</form>
+

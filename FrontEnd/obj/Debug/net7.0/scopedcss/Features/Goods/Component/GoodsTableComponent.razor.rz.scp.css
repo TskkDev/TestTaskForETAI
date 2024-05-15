@@ -1,0 +1,43 @@
+table[b-8q1koh8zeh] {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+th[b-8q1koh8zeh], td[b-8q1koh8zeh] {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+th[b-8q1koh8zeh] {
+    background-color: #f2f2f2;
+}
+tr:nth-child(even)[b-8q1koh8zeh] {
+    background-color: #f9f9f9;
+}
+.button__cell[b-8q1koh8zeh]{
+    padding:4px;
+}
+.good__editBtn[b-8q1koh8zeh], .good__deleteBtn[b-8q1koh8zeh]{
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px
+}
+.good__deleteBtn[b-8q1koh8zeh] {
+    background-color: transparent;
+    border:none;
+    font-size:28px
+}
+.good__addBtn[b-8q1koh8zeh] {
+    border-radius: 10px;
+    border: none;
+    background-color: forestgreen;
+    color: black;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 5px, 20px, 5px, 20px
+}

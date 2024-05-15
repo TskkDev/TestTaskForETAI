@@ -21,7 +21,7 @@ namespace FrontEnd.Features.Category.Service
                     var json = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<List<GetCountGoodsResponse>>(json);
                 }
-                if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
                     throw new NullReferenceException(response.Content.ToString());
                 }
@@ -33,18 +33,18 @@ namespace FrontEnd.Features.Category.Service
         {
             using (var response = await _httpClient.SendAsync(request))
             {
-                if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
-                {
-                    throw new NullReferenceException(response.Content.ToString());
-                }
-                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    throw new InvalidDataException(response.Content.ToString());
-                }
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<GetCountGoodsResponse>(json);
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    throw new NullReferenceException(response.Content.ToString());
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    throw new InvalidDataException(response.Content.ToString());
                 }
                 throw new Exception("unknown error on server side");
             }

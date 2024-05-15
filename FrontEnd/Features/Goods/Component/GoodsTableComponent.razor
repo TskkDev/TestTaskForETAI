@@ -1,0 +1,56 @@
+﻿@using FrontEnd.Features.Goods.Enums;
+@using FrontEnd.Features.Goods.StateManagment.States;
+@using FrontEnd.Shared.Components
+@inject IDispatcher Dispatcher
+@inject IState<GoodState> CategoryState
+
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+
+<ModalComponent @ref="modal">
+    <GoodsModalComponent GoodName ="@goodName" CategoryId="@CategoryIdParam"
+        Disc="@disc" Price="@price"
+    ToggleModal="@CloseModal" UpdateId="@updatedId"></GoodsModalComponent>
+</ModalComponent>
+
+<ModalComponent @ref="dialogModal">
+    <DialogModalComponent ToggleModal="@CloseDialogModal" DeleteId="updatedId??0"/>
+</ModalComponent>
+
+
+@if(Goods != null && Goods.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th @onclick="()=>Sort(GoodsFieldEnum.Id, CategoryIdParam)">
+                    @GoodsFieldEnum.Id</th>
+                <th @onclick="()=>Sort(GoodsFieldEnum.Name, CategoryIdParam)">
+                    @GoodsFieldEnum.Name</th>
+                <th @onclick="()=>Sort(GoodsFieldEnum.Dics, CategoryIdParam)">
+                    @GoodsFieldEnum.Dics</th>
+                <th @onclick="()=>Sort(GoodsFieldEnum.Price, CategoryIdParam)">
+                    @GoodsFieldEnum.Price</th>
+                <th colspan="2">
+                    <button class="good__addBtn" @onclick="()=>OpenAddModal(CategoryIdParam)">
+                        Add Good</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var good in Goods)
+            {
+                <tr>
+                <td>@good.Id</td
+                <td>@good.Name</td>
+                <td>@good.Dics</td>
+                <td>@good.Price</td>
+                <td class="button__cell"><button @onclick="()=>OpenUpdateModal(good)"
+                    class="good__editBtn">🖊️</button></td>
+                <td class="button__cell"><button class="good__deleteBtn"@onclick="()=>OpenDialogModal(good.Id)"
+                    >×</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+} 
