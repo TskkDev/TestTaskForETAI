@@ -115,18 +115,8 @@ public class GoodsController : Controller
     [HttpGet("/caregory/{categoryId:int}/goods")]
     public async Task<IActionResult> GetAllGoodsFromCategory(int categoryId, CancellationToken cancellationToken)
     {
-        ListGetCategoryNameRequest goods;
 
-        try
-        {
-            goods = _goodManager.GetAllGoodsFromCategory(categoryId);
-
-        }
-        catch (NullReferenceException ex)
-        {
-            return BadRequest(ex.Message);
-        }
-
+        var goods = _goodManager.GetAllGoodsFromCategory(categoryId);
         var data = await _requestClientList.GetResponse<ListGetCategoryNameResponse>(
             goods, cancellationToken);
         

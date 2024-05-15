@@ -2,14 +2,14 @@
 @using FrontEnd.Features.Goods.StateManagment.States;
 @using FrontEnd.Shared.Components
 @inject IDispatcher Dispatcher
-@inject IState<GoodState> CategoryState
+@inject IState<GoodState> GoodState
 
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
 
 <ModalComponent @ref="modal">
-    <GoodsModalComponent GoodName ="@goodName" CategoryId="@CategoryIdParam"
-        Disc="@disc" Price="@price"
+    <GoodsModalComponent GoodName ="@goodName" @ref="modalComponent"
+        CategoryId="@CategoryIdParam" Disc="@disc" Price="@price"
     ToggleModal="@CloseModal" UpdateId="@updatedId"></GoodsModalComponent>
 </ModalComponent>
 
@@ -18,8 +18,6 @@
 </ModalComponent>
 
 
-@if(Goods != null && Goods.Any())
-{
     <table>
         <thead>
             <tr>
@@ -35,10 +33,12 @@
                     <button class="good__addBtn" @onclick="()=>OpenAddModal(CategoryIdParam)">
                         Add Good</button>
                 </th>
-            </tr>
+            </tr
         </thead>
+        @if(GoodState.Value.Goods != null && GoodState.Value.Goods.Any())
+{
         <tbody>
-            @foreach(var good in Goods)
+            @foreach(var good in GoodState.Value.Goods)
             {
                 <tr>
                 <td>@good.Id</td
@@ -52,5 +52,5 @@
             </tr>
             }
         </tbody>
+        } 
     </table>
-} 

@@ -46,6 +46,8 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyOrigin());
 });
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

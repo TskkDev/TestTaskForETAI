@@ -3,7 +3,7 @@
 @inject IState<GoodState> GoodState
 
 <form>
-    <label style="display: @(UpdateId is null ? "none" : "flex")"> Updated category id @UpdateId </label>
+    <label style="display: @(UpdateId is null ? "none" : "flex")"> Updated good id @UpdateId </label>
     <input type="text" placeholder="Good Name" @bind="GoodName" required>
     <input type="text" placeholder="Disc" @bind="Disc" required>
     <input type="number" placeholder="Price" @bind="Price" required>

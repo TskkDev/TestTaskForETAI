@@ -3,6 +3,7 @@ using FrontEnd.Features.Category.StateManagment.Actions.AddCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TopCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.UpdateCategoryAction;
+using FrontEnd.Features.Category.StateManagment.Actions.UpdateCateoryInfoAction;
 using FrontEnd.Features.Category.StateManagment.States;
 
 namespace FrontEnd.Features.Category.StateManagment.Reducers
@@ -53,7 +54,17 @@ namespace FrontEnd.Features.Category.StateManagment.Reducers
         {
             return new CategoryState(isLoading: false, categories: action.Categories);
         }
-
+        
+        [ReducerMethod]
+        public static CategoryState ReduceUpdateCateoriesInfoAction(CategoryState state, UpdateCateoriesInfoAction action)
+        {
+            return new CategoryState(isLoading: true, categories: action.Categories);
+        }
+        [ReducerMethod]
+        public static CategoryState ReduceUpdateCateoriesInfoResultAction(CategoryState state, UpdateCateoriesInfoResultAction action)
+        {
+            return new CategoryState(isLoading: false, categories: action.Categories);
+        }
 
     }
 }

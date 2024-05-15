@@ -93,8 +93,6 @@ C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\Catego
 C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\CategoriesService__WebApi\bin\Debug\net7.0\CategoriesService__BLL.pdb
 C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\CategoriesService__WebApi\bin\Debug\net7.0\CategoriesService__DAL.pdb
 C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\CategoriesService__WebApi\obj\Debug\net7.0\CategoriesService__WebApi.csproj.AssemblyReference.cache
-C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\CategoriesService__WebApi\obj\Debug\net7.0\CategoriesService__WebApi.Properties.Resources.resources
-C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\CategoriesService__WebApi\obj\Debug\net7.0\CategoriesService__WebApi.csproj.GenerateResource.cache
 C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\CategoriesService__WebApi\obj\Debug\net7.0\CategoriesService__WebApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\CategoriesService__WebApi\obj\Debug\net7.0\CategoriesService__WebApi.AssemblyInfoInputs.cache
 C:\Users\home\Desktop\repos\TestTaskForETAI\MicroServices\CategoryService\CategoriesService__WebApi\obj\Debug\net7.0\CategoriesService__WebApi.AssemblyInfo.cs

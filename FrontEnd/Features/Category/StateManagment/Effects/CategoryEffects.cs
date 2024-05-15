@@ -5,6 +5,8 @@ using FrontEnd.Features.Category.StateManagment.Actions.AddCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.TopCategoryActions;
 using FrontEnd.Features.Category.StateManagment.Actions.UpdateCategoryAction;
+using FrontEnd.Features.Category.StateManagment.Actions.UpdateCateoryInfoAction;
+using SharedModels.Models.RespondModels.Response;
 using static System.Net.WebRequestMethods;
 
 namespace FrontEnd.Features.Category.StateManagment.Effects
@@ -68,5 +70,31 @@ namespace FrontEnd.Features.Category.StateManagment.Effects
 
             dispatcher.Dispatch(new UpdateCategoryResultAction(newCategories));
         }
+
+        [EffectMethod]
+        public async Task HandleUpdateCateoriesInfoAction(UpdateCateoriesInfoAction action, IDispatcher dispatcher)
+        {
+            List<GetCountGoodsResponse> newCategories;
+            var categories = action.Categories;
+            if (action.SecondCategoryId is null)
+            {
+                var newCategory = await _categoryService.GetCategoryById(action.FirstCategoryId);
+                newCategories = _stateHelper.UpdateCategoryInfoInListCategories(categories, 
+                    newCategory);
+            }
+            else
+            {
+                var newCategory = await _categoryService.GetCategoryById(action.FirstCategoryId);
+                var tempnewCategories = _stateHelper.UpdateCategoryInfoInListCategories(categories,
+                    newCategory);
+                newCategory = await _categoryService.GetCategoryById(action.SecondCategoryId??
+                    throw new Exception("no way exception [HandleUpdateCateoriesInfoAction]"));
+                newCategories = _stateHelper.UpdateCategoryInfoInListCategories(categories,
+                    newCategory);
+            }
+            dispatcher.Dispatch(new UpdateCateoriesInfoResultAction(newCategories));
+        }
+
+
     }
 }

@@ -5,6 +5,7 @@
 @using FrontEnd.Features.Goods.StateManagment.States;
 @using FrontEnd.Features.Goods.Component;
 @using FrontEnd.Shared.Components
+@using SharedModels.Models.RespondModels.Response;
 @inject IState<CategoryState> CategoryState
 @inject IState<GoodState> GoodState
 @inject IDispatcher Dispatcher
@@ -24,14 +25,13 @@
         <CategoryListComponent Categories="CategoryState.Value.Categories" />
 
     </div>
-    <div class="goods__block">
-        @if (GoodState.Value.Goods is not null)
-        {
-            <h1>Category: @GoodState.Value.Goods.First().CategoryName</h1>
-            <GoodsTableComponent Goods="GoodState.Value.Goods"
-                                 CategoryIdParam="GoodState.Value.Goods.First().CategoryId" 
-                                 RefreshParent="RefreshParent" />
-        }
+    <div class="goods__block " style="display: @(GoodState.Value.Goods is null ? "none" : "flex")">
+        <h1>
+            Category: @(GoodState.Value.Goods is not null? GoodState.Value.Goods.First().CategoryName: "")
+        </h1>
+
+        <GoodsTableComponent @ref="goodsTable" CategoryIdParam="GoodState.Value.Goods is not null?
+                                                GoodState.Value.Goods.First().CategoryId: 0" />
     </div>
 </div>
 

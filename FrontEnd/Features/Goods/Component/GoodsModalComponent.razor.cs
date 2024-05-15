@@ -1,19 +1,14 @@
-﻿using Fluxor;
-using FrontEnd.Features.Category.Models;
-using FrontEnd.Features.Category.StateManagment.Actions.AddCategoryActions;
-using FrontEnd.Features.Category.StateManagment.Actions.TongleCategoryActions;
-using FrontEnd.Features.Category.StateManagment.Actions.UpdateCategoryAction;
-using FrontEnd.Features.Goods.Models;
+﻿using FrontEnd.Features.Goods.Models;
 using FrontEnd.Features.Goods.StateManagment.Actions.AddGoodAction;
 using FrontEnd.Features.Goods.StateManagment.Actions.UpdateGoodAction;
 using Microsoft.AspNetCore.Components;
 using SharedModels.Models.RequestModels;
-using System.Xml.Linq;
 
 namespace FrontEnd.Features.Goods.Component
 {
     public partial class GoodsModalComponent
     {
+        #region params
         [Parameter]
         public int? UpdateId { get; set; }
 
@@ -27,6 +22,10 @@ namespace FrontEnd.Features.Goods.Component
         public decimal Price { get; set; }
         [Parameter]
         public int CategoryId { get; set; }
+        #endregion
+
+        public event Action<int> CategorySelected;
+
 
         private void Send()
         {
@@ -57,10 +56,8 @@ namespace FrontEnd.Features.Goods.Component
                 };
                 Dispatcher.Dispatch(new UpdateGoodAction(updatedCategpry, GoodState.Value.Goods));
             }
-            GoodName = "";
-            CategoryId = 0;
-            Disc = "";
-            Price = 0;
+            CategorySelected.Invoke(CategoryId);
+
             ToggleModal();
         }
     }

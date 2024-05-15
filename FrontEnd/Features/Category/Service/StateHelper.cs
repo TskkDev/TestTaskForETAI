@@ -15,6 +15,7 @@ namespace FrontEnd.Features.Category.Service
             {
                 if (c.Id == oldCategoryId)
                 {
+
                     if (isAdd)
                     {
                         c.SubCategories.Add(newCategory);
@@ -69,6 +70,23 @@ namespace FrontEnd.Features.Category.Service
                 }
                 return c;
             }).Where(c=>c!=null).ToList();
+            return newCategories;
+        }
+
+        public List<GetCountGoodsResponse> UpdateCategoryInfoInListCategories(IEnumerable<GetCountGoodsResponse> categories, GetCountGoodsResponse tempCategory)
+        {
+            var newCategories = categories.Select(c =>
+            {
+                if (c.Id == tempCategory.Id)
+                {
+                    c.CountGoods = tempCategory.CountGoods;
+                }
+                else
+                {
+                    c.SubCategories = UpdateCategoryInfoInListCategories(c.SubCategories, tempCategory);
+                }
+                return c;
+            }).ToList();
             return newCategories;
         }
     }
