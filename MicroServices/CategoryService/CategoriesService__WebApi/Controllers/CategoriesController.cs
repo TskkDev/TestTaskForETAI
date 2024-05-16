@@ -38,8 +38,16 @@ public class CategoriesController : Controller
     {
         if (string.IsNullOrEmpty(newCategory.Name))
             return BadRequest();
+        GetCountGoodsRequest addCategory;
+        try
+        {
+            addCategory = _categoryManager.AddCategory(newCategory);
 
-        var addCategory = _categoryManager.AddCategory(newCategory);
+        }
+        catch(NullReferenceException ex)
+        {
+            return NotFound(ex.Message);
+        }
         var data = await _requestClient.GetResponse<GetCountGoodsResponse>(addCategory, cancellationToken);
 
         await _publishEndpoint.Publish<CategoryMessage>(

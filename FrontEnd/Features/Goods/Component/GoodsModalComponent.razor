@@ -7,7 +7,14 @@
     <input type="text" placeholder="Good Name" @bind="GoodName" required>
     <input type="text" placeholder="Disc" @bind="Disc" required>
     <input type="number" placeholder="Price" @bind="Price" required>
-    <input type="text" placeholder=" Category Id" @bind="CategoryId" required>
+    @if(UpdateId is null)
+    {
+        <input type="text" placeholder=" Category Id" @bind="CategoryId" required readonly>
+    }
+    else
+    {
+        <input type="text" placeholder=" Category Id" @bind="CategoryId" required >
+    }
 
     <button class="send_btn" type="button" onclick="@Send">@(UpdateId is null ? "Add Category" : "Update Category")</button>
 </form>

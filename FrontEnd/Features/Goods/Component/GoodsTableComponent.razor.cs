@@ -15,7 +15,6 @@ namespace FrontEnd.Features.Goods.Component
 
         private int? updatedId;
         private string goodName;
-        private int categoryId;
         private string disc;
         private decimal price;
         #endregion
@@ -24,8 +23,7 @@ namespace FrontEnd.Features.Goods.Component
         ModalComponent modal;
         ModalComponent dialogModal;
         GoodsModalComponent modalComponent;
-        public event Action<int> CategorySelected;
-        public int CategorySelectedValue;
+        public int? CategorySelectedValue;
 
         private void HandleCategorySelected(int selectedCategory)
         {
@@ -33,31 +31,26 @@ namespace FrontEnd.Features.Goods.Component
         }
         private void OpenAddModal(int categoryId)
         {
-            this.categoryId = categoryId;
-
-            modal.Open();
             updatedId = null;
             goodName = "";
-            this.categoryId = 0;
             disc = "";
             price = 0;
+            modal.Open();
         }
         private void OpenUpdateModal(GetCategoryNameResponse good)
         {
             updatedId = good.Id;
             goodName = good.Name;
-            categoryId = good.CategoryId;
+            CategoryIdParam = good.CategoryId;
             disc = good.Dics;
             price = good.Price;
 
             modal.Open();
         }
 
-        private void CloseModal()
+        private void CloseModalAsync()
         {
-            modal.Close();
-            CategorySelected.Invoke(CategorySelectedValue);
-
+            modal.Close(CategoryIdParam, CategorySelectedValue);
         }
         private void OpenDialogModal(int goodId)
         {
@@ -67,8 +60,7 @@ namespace FrontEnd.Features.Goods.Component
 
         private void CloseDialogModal()
         {
-            dialogModal.Close();
-            CategorySelected.Invoke(categoryId);
+            dialogModal.Close(CategoryIdParam);
         }
         #endregion
 
@@ -87,7 +79,6 @@ namespace FrontEnd.Features.Goods.Component
             previosFieldName = fieldName;
         }
         #endregion
-
         protected override void OnAfterRender(bool firstRender)
         {
             base.OnAfterRender(firstRender);

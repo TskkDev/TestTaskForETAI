@@ -13,7 +13,9 @@ namespace FrontEnd.Features.Category.Component
         private int? ParentCategoryId;
         private string CategoryName;
 
-        ModalComponent modal;
+        private ModalComponent categoryModal;
+
+        private ModalComponent goodModal;
         [Parameter]
         public IEnumerable<GetCountGoodsResponse> Categories { get; set; }
         private void ToggleCategory(GetCountGoodsResponse category)
@@ -27,17 +29,27 @@ namespace FrontEnd.Features.Category.Component
             Dispatcher.Dispatch(new LoadGoodsAction(categoryId));
             StateHasChanged();
         }
-        private void OpenModal(GetCountGoodsResponse info)
+        private void OpenCategoryModal(GetCountGoodsResponse info)
         {
             CategoryId = info.Id;
             ParentCategoryId = info.ParentCategoryId;
             CategoryName = info.Name;
 
-            modal.Open();
+            categoryModal.Open();
         }
-        private void CloseModal()
+        private void CloseCategoryModal()
         {
-            modal.Close();
+            categoryModal.Close();
+        }
+
+        private void OpenGoodModal(int categoryId)
+        {
+            CategoryId = categoryId;
+            goodModal.Open();
+        }
+        private void CloseGoodModal()
+        {
+            goodModal.Close(CategoryId);
         }
     }
 }

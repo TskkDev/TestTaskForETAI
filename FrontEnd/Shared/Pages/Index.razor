@@ -5,7 +5,9 @@
 @using FrontEnd.Features.Goods.StateManagment.States;
 @using FrontEnd.Features.Goods.Component;
 @using FrontEnd.Shared.Components
+@using FrontEnd.Shared.Service.ErrorService;
 @using SharedModels.Models.RespondModels.Response;
+@inject IErrorService ErrorService
 @inject IState<CategoryState> CategoryState
 @inject IState<GoodState> GoodState
 @inject IDispatcher Dispatcher
@@ -18,6 +20,16 @@
         ToggleModal="CloseModal"></CategoriesModalComponent>
 </ModalComponent>
 
+<ModalComponent @ref="errorModal">
+    <div class="error__block">
+        <p class="errorMessage__ico">⚠</p>
+        @foreach (var error in ErrorMessage)
+        {
+            <p class="errorMessage">@error</p>
+        }
+    </div>
+</ModalComponent>
+
 <div class="content">
     <div class="categories__block">
 
@@ -25,14 +37,16 @@
         <CategoryListComponent Categories="CategoryState.Value.Categories" />
 
     </div>
-    <div class="goods__block " style="display: @(GoodState.Value.Goods is null ? "none" : "flex")">
-        <h1>
-            Category: @(GoodState.Value.Goods is not null? GoodState.Value.Goods.First().CategoryName: "")
-        </h1>
+    @if (GoodState.Value.Goods is not null && GoodState.Value.Goods.Any())
+    {
+        <div class="goods__block ">
+            <h1>
+                Category: @(GoodState.Value.Goods.First().CategoryName)
+            </h1>
 
-        <GoodsTableComponent @ref="goodsTable" CategoryIdParam="GoodState.Value.Goods is not null?
-                                                GoodState.Value.Goods.First().CategoryId: 0" />
-    </div>
+            <GoodsTableComponent CategoryIdParam="GoodState.Value.Goods.First().CategoryId" />
+        </div>    
+    }
 </div>
 
 

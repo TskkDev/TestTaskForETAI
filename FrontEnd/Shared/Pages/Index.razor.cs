@@ -5,46 +5,39 @@ using FrontEnd.Features.Category.StateManagment.Actions.UpdateCateoryInfoAction;
 using FrontEnd.Features.Goods.Component;
 using FrontEnd.Features.Goods.StateManagment.States;
 using FrontEnd.Shared.Components;
+using FrontEnd.Shared.Service.ErrorService;
 
 namespace FrontEnd.Shared.Pages
 {
     public partial class Index
     {
         ModalComponent modal;
-        GoodsTableComponent goodsTable;
+        ModalComponent errorModal;
 
-        void OpenModal()
+        private List<string> ErrorMessage = new List<string>();
+        private void OpenModal()
         {
             modal.Open();
         }
-        void CloseModal()
+        private void CloseModal()
         {
             modal.Close();
-        }
-        private void HandleCategorySelected(int selectedCategory)
-        {
-            int firstSelectedCategory = GoodState.Value.Goods.First().CategoryId;
-            int? secondSelectedCategory = null;
-            if(selectedCategory != firstSelectedCategory)
-            {
-                secondSelectedCategory = selectedCategory;
-            }
-
-            Dispatcher.Dispatch(new UpdateCateoriesInfoAction(
-                    firstSelectedCategory, secondSelectedCategory,
-                    CategoryState.Value.Categories));
         }
 
 
         protected override void OnInitialized()
         {
             base.OnInitialized();
+            ErrorService.OnErrors += ShowError;
             Dispatcher.Dispatch(new TopCategoriesAction());
+
         }
-        protected override void OnAfterRender(bool firstRender)
+
+        private void ShowError(List<string> errorMessage)
         {
-            base.OnAfterRender(firstRender);
-            goodsTable.CategorySelected += HandleCategorySelected;
+            ErrorService.RemoveAllErrors();
+            ErrorMessage = errorMessage;
+            errorModal.Open();
         }
     }
 }

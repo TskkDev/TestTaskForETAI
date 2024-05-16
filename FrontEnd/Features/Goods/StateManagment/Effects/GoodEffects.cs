@@ -37,17 +37,24 @@ namespace FrontEnd.Features.Goods.StateManagment.Effects
         [EffectMethod]
         public async Task HandleAddGoodAction(AddGoodAction action, IDispatcher dispatcher)
         {
-
+            List<GetCategoryNameResponse> newGoods;
             var good = await _goodService.AddGood(action.Good);
-            var newGoods = _stateHelper.AddGoodInGoodsList(action.Goods, good);
+            if(action.Goods is null)
+            {
+                newGoods = await _goodService.GetGoodsFromCategory(good.CategoryId);
+            }
+            else
+            {
+                newGoods = _stateHelper.AddGoodInGoodsList(action.Goods, good);
+            }
             dispatcher.Dispatch(new AddGoodResultAction(newGoods));
         }
 
         [EffectMethod]
         public async Task HandleUpdateGoodAction(UpdateGoodAction action, IDispatcher dispatcher)
         {
-
             var good = await _goodService.UpdateGood(action.NewGood);
+            
             var newGoods = _stateHelper.UpdateGoodInGoodsList(action.Goods, good);
             dispatcher.Dispatch(new UpdateGoodResultAction(newGoods));
         }

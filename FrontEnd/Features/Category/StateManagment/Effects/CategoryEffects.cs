@@ -74,22 +74,15 @@ namespace FrontEnd.Features.Category.StateManagment.Effects
         [EffectMethod]
         public async Task HandleUpdateCateoriesInfoAction(UpdateCateoriesInfoAction action, IDispatcher dispatcher)
         {
-            List<GetCountGoodsResponse> newCategories;
-            var categories = action.Categories;
-            if (action.SecondCategoryId is null)
+            List<GetCountGoodsResponse> newCategories = action.Categories.ToList();
+
+            var newCategory = await _categoryService.GetCategoryById(action.FirstCategoryId);
+            newCategories = _stateHelper.UpdateCategoryInfoInListCategories(newCategories,
+                newCategory);
+            if (action.SecondCategoryId is not null)
             {
-                var newCategory = await _categoryService.GetCategoryById(action.FirstCategoryId);
-                newCategories = _stateHelper.UpdateCategoryInfoInListCategories(categories, 
-                    newCategory);
-            }
-            else
-            {
-                var newCategory = await _categoryService.GetCategoryById(action.FirstCategoryId);
-                var tempnewCategories = _stateHelper.UpdateCategoryInfoInListCategories(categories,
-                    newCategory);
-                newCategory = await _categoryService.GetCategoryById(action.SecondCategoryId??
-                    throw new Exception("no way exception [HandleUpdateCateoriesInfoAction]"));
-                newCategories = _stateHelper.UpdateCategoryInfoInListCategories(categories,
+                newCategory = await _categoryService.GetCategoryById(action.SecondCategoryId??0);
+                newCategories = _stateHelper.UpdateCategoryInfoInListCategories(newCategories, 
                     newCategory);
             }
             dispatcher.Dispatch(new UpdateCateoriesInfoResultAction(newCategories));

@@ -6,16 +6,19 @@
 
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<ModalComponent @ref="modal">
+<ModalComponent @ref="categoryModal">
     <CategoriesModalComponent CategoryName="@CategoryName" ParentCategoryId="@ParentCategoryId"
-    ToggleModal="@CloseModal" UpdateId="@CategoryId"></CategoriesModalComponent>
+    ToggleModal="@CloseCategoryModal" UpdateId="@CategoryId"></CategoriesModalComponent>
+</ModalComponent>
+<ModalComponent @ref="goodModal">
+    <FrontEnd.Features.Goods.Component.GoodsModalComponent 
+    ToggleModal="@CloseGoodModal" CategoryId="@CategoryId"/>
 </ModalComponent>
 @if (Categories != null && Categories.Any())
 {
     <ul class="category__ul">
         @foreach (var category in Categories)
         {
-
             <li class="category__li">
                 <div class="category__li__content">
                     <div class="category__li__info">
@@ -23,7 +26,7 @@
                             Name:
                             <span class=" category__li__name__value" >
                                 @category.Name </span>
-                            <button class="category__editBtn" @onclick="() =>OpenModal(category)">🖊️</button>
+                            <button class="category__editBtn" @onclick="() =>OpenCategoryModal(category)">🖊️</button>
                         </p>
                         <p class="category__li__subInfo">
                             Id:
@@ -35,7 +38,14 @@
                     @if (category.CountGoods > 0)
                     {
                         <button class="category__loadGoods" @onclick="() 
-                            =>LoadGoodsFromCategory(category.Id)">Открыть</button>
+                            =>LoadGoodsFromCategory(category.Id)">Open</button>
+                    }
+                    else
+                    {
+                        <button class="category__loadGoods" @onclick="()
+                            =>OpenGoodModal(category.Id)">
+                            Add
+                        </button>
                     }
                     <button class="category__toggleBtn" @onclick="() => ToggleCategory(category)">
                         @(category.IsVisible ? "▲" : "▼")

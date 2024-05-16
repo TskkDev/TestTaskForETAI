@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using FrontEnd.Shared.Service.ErrorService;
+using Newtonsoft.Json;
 using SharedModels.Models.RespondModels.Response;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace FrontEnd.Features.Category.Service
+namespace FrontEnd.Features.Goods.Service
 {
     public class GoodResponseHelper
     {
@@ -23,13 +24,13 @@ namespace FrontEnd.Features.Category.Service
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
-                    throw new NullReferenceException(response.Content.ToString());
+                    throw new NullReferenceException(await response.Content.ReadAsStringAsync());
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    throw new InvalidDataException(response.Content.ToString());
+                    throw new InvalidDataException(await response.Content.ReadAsStringAsync());
                 }
-                throw new Exception("unknown error on server side");
+                else throw new Exception("unknown error on server side");
             }
         }
 
@@ -44,13 +45,13 @@ namespace FrontEnd.Features.Category.Service
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
-                    throw new NullReferenceException(response.Content.ToString());
+                    throw new NullReferenceException(await response.Content.ReadAsStringAsync());
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    throw new InvalidDataException(response.Content.ToString());
+                    throw new InvalidDataException(await response.Content.ReadAsStringAsync());
                 }
-                throw new Exception("unknown error on server side");
+                else  throw new Exception("unknown error on server side");
             }
         }
 

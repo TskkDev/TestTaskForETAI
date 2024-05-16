@@ -22,8 +22,13 @@ namespace CategoriesService__BLL.Managers
             using (var db = new DbConection(_connectionString))
             {
                 var repos = new CategoriesRepository(db);
-                return(_converter.EntityToGetCountGoodsRequest(
-                    repos.Add(_converter.RequestModelToEntity(newCategory))));
+                if (newCategory.ParentCategoryId is not null
+                    && repos.GetById(newCategory.ParentCategoryId ?? 0) is null)
+                {
+                    throw new NullReferenceException("Invalid parentId");
+                }
+                return (_converter.EntityToGetCountGoodsRequest(
+                repos.Add(_converter.RequestModelToEntity(newCategory))));
             }
         }
 
@@ -33,6 +38,11 @@ namespace CategoriesService__BLL.Managers
             {
                 var repos = new CategoriesRepository(db);
                 var oldCategory = repos.GetById(categoryId);
+                if (newCategory.ParentCategoryId is not null 
+                    && repos.GetById(newCategory.ParentCategoryId??0) is null )
+                {
+                    throw new NullReferenceException("New category parent doesn't found");
+                }
                 if (oldCategory is null) throw new NullReferenceException("Old category doesn't found");
                 return (_converter.EntityToGetCountGoodsRequest(
                     repos.Update(oldCategory, _converter.RequestModelToEntity(newCategory))));

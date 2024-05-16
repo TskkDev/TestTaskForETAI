@@ -80,7 +80,7 @@ ul[b-rh4henzwph] {
     background-color: transparent;
     border: none
 }
-.category__loadGoods[b-rh4henzwph] {
+.category__loadGoods[b-rh4henzwph]{
     border-radius: 10px;
     border: none;
     background-color: forestgreen;
@@ -249,4 +249,21 @@ tr:nth-child(even)[b-8q1koh8zeh] {
     min-width: 70%;
     gap:40px;
     padding-top:30px
+}
+.errorMessage[b-peepq42o1s], .errorMessage__ico[b-peepq42o1s]{
+    color: crimson;
+}
+.errorMessage__ico[b-peepq42o1s] {
+    font-size: 36px;
+    margin-top: -38px;
+}
+.error__block[b-peepq42o1s] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    min-height: 200px;
+    gap:30px;
+    padding:10px
 }

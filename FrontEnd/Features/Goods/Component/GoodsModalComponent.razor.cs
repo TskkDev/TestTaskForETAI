@@ -3,6 +3,7 @@ using FrontEnd.Features.Goods.StateManagment.Actions.AddGoodAction;
 using FrontEnd.Features.Goods.StateManagment.Actions.UpdateGoodAction;
 using Microsoft.AspNetCore.Components;
 using SharedModels.Models.RequestModels;
+using System.Reflection;
 
 namespace FrontEnd.Features.Goods.Component
 {
@@ -10,16 +11,16 @@ namespace FrontEnd.Features.Goods.Component
     {
         #region params
         [Parameter]
-        public int? UpdateId { get; set; }
+        public int? UpdateId { get; set; } = null;
 
         [Parameter]
         public Action ToggleModal { get; set; }
         [Parameter]
-        public string GoodName { get; set; }
+        public string GoodName { get; set; } = null;
         [Parameter]
-        public string Disc { get; set; }
+        public string Disc { get; set; } = null;
         [Parameter]
-        public decimal Price { get; set; }
+        public decimal Price { get; set; } = 0;
         [Parameter]
         public int CategoryId { get; set; }
         #endregion
@@ -55,9 +56,8 @@ namespace FrontEnd.Features.Goods.Component
 
                 };
                 Dispatcher.Dispatch(new UpdateGoodAction(updatedCategpry, GoodState.Value.Goods));
+                CategorySelected.Invoke(CategoryId);
             }
-            CategorySelected.Invoke(CategoryId);
-
             ToggleModal();
         }
     }

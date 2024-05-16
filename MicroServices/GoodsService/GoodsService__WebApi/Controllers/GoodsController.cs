@@ -42,7 +42,7 @@ public class GoodsController : Controller
 
         if (string.IsNullOrEmpty(newGood.Name) || string.IsNullOrEmpty(newGood.Dics)
                 || newGood.Price <= 0)
-            return BadRequest();
+            return BadRequest("Invalid info");
         if (newGood.CategoryId <= 0) return NotFound();
 
         try
@@ -74,8 +74,8 @@ public class GoodsController : Controller
         Response<GetCategoryNameResponse> data;
 
         if (string.IsNullOrEmpty(newGood.Name) || string.IsNullOrEmpty(newGood.Dics)
-                    || newGood.Price <= 0) return BadRequest();
-        if (newGood.CategoryId <= 0) return NotFound();
+                    || newGood.Price <= 0) return BadRequest("Invalid category info ");
+        if (newGood.CategoryId <= 0) return NotFound("Invalid categoryId");
 
         try
         {

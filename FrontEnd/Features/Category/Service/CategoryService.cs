@@ -1,5 +1,6 @@
 ﻿using FrontEnd.Features.Category.Interfaces;
 using FrontEnd.Features.Category.Models;
+using FrontEnd.Shared.Service.ErrorService;
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 using Newtonsoft.Json;
 using SharedModels.Models.RequestModels;
@@ -9,17 +10,19 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using static System.Net.WebRequestMethods;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FrontEnd.Features.Category.Service
 {
     public class CategoryService : ICategoryService
     {
-        private readonly HttpClient _httpClient;
+        private readonly IErrorService _errorService;
+        private string errorMessageSample = "[Category]    ";
         private readonly string _apiString;
         private readonly CategoryResponseHelper _responseHelper;
-        public CategoryService(HttpClient httpClient, string apiString)
+        public CategoryService(HttpClient httpClient, string apiString, IErrorService errorService)
         {
-            _httpClient = httpClient;
+            _errorService = errorService;
             _apiString = apiString;
             _responseHelper = new CategoryResponseHelper(httpClient);
         }
@@ -30,14 +33,20 @@ namespace FrontEnd.Features.Category.Service
         {
             Uri connectionString = new Uri(_apiString + "getAllTopicCategory");
 
-
             var request = new HttpRequestMessage()
             {
                 Method = HttpMethod.Get,
                 RequestUri = connectionString,
             };
-
-            var data = await _responseHelper.SendAndAcceptListResponse(request);
+            List<GetCountGoodsResponse> data = new List<GetCountGoodsResponse>();
+            try
+            {
+                data = await _responseHelper.SendAndAcceptListResponse(request);
+            }
+            catch (Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
             return data;
         }
 
@@ -52,8 +61,15 @@ namespace FrontEnd.Features.Category.Service
                 RequestUri = connectionString,
             };
 
-
-            var data = await _responseHelper.SendAndAcceptResponse(request);
+            GetCountGoodsResponse data = new GetCountGoodsResponse();
+            try
+            {
+                data = await _responseHelper.SendAndAcceptResponse(request);
+            }
+            catch (Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
             return data;
         }
 
@@ -69,7 +85,15 @@ namespace FrontEnd.Features.Category.Service
                 Content = content
             };
 
-            var data = await _responseHelper.SendAndAcceptResponse(request);
+            GetCountGoodsResponse data = new GetCountGoodsResponse();
+            try
+            {
+                data = await _responseHelper.SendAndAcceptResponse(request);
+            }
+            catch (Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
             return data;
         }
 
@@ -85,8 +109,16 @@ namespace FrontEnd.Features.Category.Service
                 Method = HttpMethod.Post,
                 Content = content,
             };
-            
-            var data = await _responseHelper.SendAndAcceptResponse(request);
+
+            GetCountGoodsResponse data = new GetCountGoodsResponse();
+            try
+            {
+                data = await _responseHelper.SendAndAcceptResponse(request);
+            }
+            catch (Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
             return data;
         }
     }

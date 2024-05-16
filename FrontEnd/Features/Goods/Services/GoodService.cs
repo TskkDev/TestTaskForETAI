@@ -1,6 +1,7 @@
-﻿using FrontEnd.Features.Category.Service;
-using FrontEnd.Features.Goods.Interfaces;
+﻿using FrontEnd.Features.Goods.Interfaces;
 using FrontEnd.Features.Goods.Models;
+using FrontEnd.Features.Goods.Service;
+using FrontEnd.Shared.Service.ErrorService;
 using Newtonsoft.Json;
 using SharedModels.Models.RequestModels;
 using SharedModels.Models.RespondModels.Response;
@@ -10,12 +11,13 @@ namespace FrontEnd.Features.Goods.Services
 {
     public class GoodService: IGoodService
     {
-        private readonly HttpClient _httpClient;
+        private readonly IErrorService _errorService;
         private readonly string _apiString;
         private GoodResponseHelper _responseHelper;
-        public GoodService(HttpClient httpClient, string apiString)
+        private string errorMessageSample = "[Goods]    ";
+        public GoodService(HttpClient httpClient, string apiString, IErrorService errorService)
         {
-            _httpClient = httpClient;
+            _errorService = errorService;
             _apiString = apiString;
             _responseHelper = new GoodResponseHelper(httpClient);
         }
@@ -30,7 +32,15 @@ namespace FrontEnd.Features.Goods.Services
                 RequestUri = connectionString,
             };
 
-            var data = await _responseHelper.SendAndAcceptListResponse(request);
+            List<GetCategoryNameResponse> data = new List<GetCategoryNameResponse>();
+            try
+            {
+                data = await _responseHelper.SendAndAcceptListResponse(request);
+            }
+            catch (Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
             return data;
         }
 
@@ -46,7 +56,15 @@ namespace FrontEnd.Features.Goods.Services
                 RequestUri = connectionString,
             };
 
-            var data = await _responseHelper.SendAndAcceptListResponse(request);
+            List<GetCategoryNameResponse> data = new List<GetCategoryNameResponse>();
+            try
+            {
+                data = await _responseHelper.SendAndAcceptListResponse(request);
+            }
+            catch (Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
             return data;
         }
 
@@ -62,7 +80,15 @@ namespace FrontEnd.Features.Goods.Services
                 Content = content,
             };
 
-            var data = await _responseHelper.SendAndAcceptResponse(request);
+            GetCategoryNameResponse data = new GetCategoryNameResponse();
+            try
+            {
+                data = await _responseHelper.SendAndAcceptResponse(request);
+            }
+            catch (Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
             return data;
         }
 
@@ -78,7 +104,15 @@ namespace FrontEnd.Features.Goods.Services
                 Content = content,
             };
 
-            var data = await _responseHelper.SendAndAcceptResponse(request);
+            GetCategoryNameResponse data = new GetCategoryNameResponse();
+            try
+            {
+                data = await _responseHelper.SendAndAcceptResponse(request);
+            }
+            catch (Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
             return data;
         }
 
@@ -92,7 +126,15 @@ namespace FrontEnd.Features.Goods.Services
                 RequestUri = connectionString,
                 Method = HttpMethod.Delete
             };
-            var data = await _responseHelper.SendAndAcceptResponse(request);
+            try
+            {
+                var data = await _responseHelper.SendAndAcceptResponse(request);
+
+            }
+            catch(Exception ex)
+            {
+                _errorService.HandleError(errorMessageSample + ex.Message);
+            }
         }
     }
 }
